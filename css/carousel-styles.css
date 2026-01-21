@@ -1,0 +1,186 @@
+/* Mouse-Driven Carousel Section */
+.mouse-scroll-section {
+    position: relative;
+    width: 100%;
+    height: 85vh;
+    overflow: hidden;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    margin-top: 5rem;
+    /* Separated from section above */
+    padding: 0;
+    /* Full width, no padding */
+}
+
+.mouse-scroll-track {
+    display: flex;
+    gap: 0;
+    /* No gap as per screenshot, or very subtle lines? Screenshot has lines. Let's use border */
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: transform 0.1s ease-out;
+    /* Smooth follow */
+    will-change: transform;
+}
+
+.mouse-card {
+    width: 25vw;
+    min-width: 25vw;
+    max-width: 25vw;
+    height: 55vh;
+    /* Increased height */
+    background: white;
+    border-right: 1px solid #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    transition: all 0.3s ease;
+    padding: 2rem;
+    flex-shrink: 0;
+    cursor: default;
+    overflow: hidden;
+    /* Ensure content stays inside */
+    box-sizing: border-box;
+}
+
+.mouse-card:last-child {
+    border-right: none;
+}
+
+.mouse-card h3 {
+    font-size: 2.5rem;
+    /* Slightly smaller to fit month names */
+    font-family: var(--font-serif, serif);
+    font-weight: 700;
+    color: #333333;
+    /* Black text */
+    line-height: 1.2;
+    transition: all 0.3s ease;
+    margin-bottom: 0.5rem;
+}
+
+.mouse-card h4 {
+    font-size: 1.2rem;
+    color: var(--text-dark, #333);
+    font-weight: 600;
+    margin-bottom: 1rem;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+    display: none;
+    /* Hidden by default */
+}
+
+.mouse-card p {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.6;
+    max-width: 80%;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s ease 0.1s;
+    /* Slight delay */
+    display: none;
+    /* Hidden by default */
+}
+
+/* Hover Effects */
+.mouse-card:hover {
+    background-color: var(--hover-color, #d32f2f);
+    /* Dynamic Background */
+}
+
+.mouse-card:hover h3 {
+    color: white;
+    font-size: 2rem;
+    /* Shrink slightly on hover */
+    margin-bottom: 1.5rem;
+}
+
+.mouse-card:hover h4 {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+    color: white;
+}
+
+.mouse-card:hover p {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Make it responsive */
+@media (max-width: 1024px) {
+    .mouse-card {
+        min-width: 33.33vw;
+        height: 50vh;
+    }
+
+    .mouse-card h3 {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .mouse-card {
+        min-width: 80vw;
+        /* Mobile behavior might need standard scroll */
+    }
+
+    .mouse-scroll-section {
+        height: 60vh;
+        overflow-x: auto;
+        /* Allow touch scroll on mobile */
+    }
+
+    .mouse-scroll-track {
+        position: static;
+        transform: none !important;
+        /* Disable JS transform on mobile */
+    }
+}
+
+/* Carousel Title */
+.carousel-title {
+    position: absolute;
+    top: 0.8rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2.5rem;
+    font-family: var(--font-serif);
+    font-weight: 700;
+    color: #333;
+    z-index: 10;
+    text-align: center;
+    width: 100%;
+}
+
+/* Download Button */
+.btn-annual-fixture {
+    display: inline-block;
+    background-color: transparent;
+    color: #d32f2f;
+    padding: 14px 30px;
+    /* Adjusted for border */
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 2px solid #d32f2f;
+    font-size: 0.9rem;
+    box-shadow: none;
+}
+
+.btn-annual-fixture:hover {
+    background-color: #d32f2f;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 15px rgba(211, 47, 47, 0.2);
+}

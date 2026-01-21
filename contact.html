@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Aston High School</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container navbar">
+            <a href="index.html" class="logo"
+                style="display: flex; align-items: center; text-decoration: none; color: inherit;">
+                <!-- Aston Group (Logo + Text) -->
+                <div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+                    <img src="assets/images/logo/Aston logo.jpeg" alt="Aston High School Logo"
+                        style="height: 60px; width: auto; margin-bottom: 5px;">
+                    <div style="display: flex; flex-direction: column; line-height: 1.1; justify-content: center;">
+                        <span
+                            style="font-size: 1.5rem; font-weight: 700; font-family: var(--font-serif); letter-spacing: 1.5px;">ASTON</span>
+                        <span style="font-size: 0.8rem; font-weight: 700; letter-spacing: 1px;">HOSTEL</span>
+                    </div>
+                </div>
+
+                <!-- Vertical Separator -->
+                <div style="height: 50px; width: 1px; background-color: #333; opacity: 0.3; margin: 0 1.5rem;"></div>
+
+                <!-- Nachiketas Group (Logo + Text) -->
+                <div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+                    <img src="assets/images/logo/Nachiketas School.jpg" alt="Nachiketas School Logo"
+                        style="height: 60px; width: auto; margin-bottom: 5px;">
+                    <div style="display: flex; flex-direction: column; line-height: 1.1; justify-content: center;">
+                        <span
+                            style="font-size: 1.5rem; font-weight: 700; font-family: var(--font-serif); letter-spacing: 1.5px;">NACHIKETAS</span>
+                        <span style="font-size: 0.8rem; font-weight: 700; letter-spacing: 1px;">HIGH SCHOOL</span>
+                    </div>
+                </div>
+            </a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="admissions.html">Admissions</a></li>
+                    <li><a href="academics.html">Academics</a></li>
+                    <li><a href="facilities.html">Facilities</a></li>
+                    <li><a href="student-life.html">Student Life</a></li>
+                    <li><a href="news.html">News</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html" style="color: var(--primary-red);">Contact Us</a></li>
+                </ul>
+            </nav>
+            <div class="hamburger"><i class="fa-solid fa-bars"></i></div>
+            <!-- Removed Search and Apply buttons -->
+        </div>
+    </header>
+
+    <!-- Contact Header (No Image Hero) -->
+    <section class="contact-header" style="text-align: center; padding: 4rem 1rem 3rem; background-color: #fafafa;">
+        <div class="container">
+            <h1 style="font-size: 3.5rem; font-family: 'Playfair Display', serif; margin-bottom: 1rem; color: #1a1a1a;">
+                Get in Touch</h1>
+            <p style="color: #666; max-width: 600px; margin: 0 auto; font-size: 1.1rem; line-height: 1.6;">
+                We're here to answer your questions and help you discover the Aston High experience. Reach out to our
+                team or visit us on campus.
+            </p>
+        </div>
+    </section>
+
+    <!-- Contact Content -->
+    <section class="contact-section" style="padding: 0 0 5rem; background-color: #fafafa;">
+        <div class="container">
+            <div class="contact-layout"
+                style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 4rem; align-items: start;">
+
+                <!-- Left Column: Form -->
+                <div class="contact-form-card"
+                    style="background: #fff; padding: 3rem; border-radius: 12px; border: 1px solid #eaeaea; box-shadow: 0 4px 6px rgba(0,0,0,0.02);">
+                    <form>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem;">
+                            <!-- First Name -->
+                            <div>
+                                <label for="firstname"
+                                    style="display: block; margin-bottom: 0.5rem; font-size: 0.85rem; font-weight: 700; color: #333; text-transform: uppercase; letter-spacing: 0.5px;">First
+                                    Name</label>
+                                <input type="text" id="firstname" placeholder="e.g. John"
+                                    style="width: 100%; padding: 0.9rem; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem; color: #333;">
+                            </div>
+                            <!-- Last Name -->
+                            <div>
+                                <label for="lastname"
+                                    style="display: block; margin-bottom: 0.5rem; font-size: 0.85rem; font-weight: 700; color: #333; text-transform: uppercase; letter-spacing: 0.5px;">Last
+                                    Name</label>
+                                <input type="text" id="lastname" placeholder="e.g. Smith"
+                                    style="width: 100%; padding: 0.9rem; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem; color: #333;">
+                            </div>
+                        </div>
+
+                        <div style="margin-bottom: 1.5rem;">
+                            <label for="email"
+                                style="display: block; margin-bottom: 0.5rem; font-size: 0.85rem; font-weight: 700; color: #333; text-transform: uppercase; letter-spacing: 0.5px;">Email
+                                Address</label>
+                            <input type="email" id="email" placeholder="email@example.edu"
+                                style="width: 100%; padding: 0.9rem; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem; color: #333;">
+                        </div>
+
+                        <div style="margin-bottom: 1.5rem;">
+                            <label for="subject"
+                                style="display: block; margin-bottom: 0.5rem; font-size: 0.85rem; font-weight: 700; color: #333; text-transform: uppercase; letter-spacing: 0.5px;">Subject</label>
+                            <select id="subject"
+                                style="width: 100%; padding: 0.9rem; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem; color: #333; background-color: #fff;">
+                                <option>General Inquiry</option>
+                                <option>Admissions</option>
+                                <option>Careers</option>
+                                <option>Alumni Relations</option>
+                            </select>
+                        </div>
+
+                        <div style="margin-bottom: 2rem;">
+                            <label for="message"
+                                style="display: block; margin-bottom: 0.5rem; font-size: 0.85rem; font-weight: 700; color: #333; text-transform: uppercase; letter-spacing: 0.5px;">Message</label>
+                            <textarea id="message" rows="6" placeholder="How can we help you?"
+                                style="width: 100%; padding: 0.9rem; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem; color: #333; resize: vertical;"></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary"
+                            style="width: 100%; background-color: #d31e33; color: #fff; padding: 1rem; font-size: 1.1rem; font-weight: 600; border: none; border-radius: 6px; cursor: pointer; transition: background 0.3s;">Send
+                            Message</button>
+                    </form>
+                </div>
+
+                <!-- Right Column: Info & Map -->
+                <div class="contact-info-col">
+
+                    <!-- Info Items -->
+                    <div style="display: flex; gap: 1.2rem; margin-bottom: 2rem;">
+                        <div
+                            style="width: 48px; height: 48px; background-color: #fceceb; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                            <i class="fa-solid fa-location-dot" style="color: #d31e33; font-size: 1.2rem;"></i>
+                        </div>
+                        <div>
+                            <h4
+                                style="font-family: 'Playfair Display', serif; font-size: 1.2rem; margin-bottom: 0.3rem; color: #1a1a1a;">
+                                Address</h4>
+                            <p style="color: #666; font-size: 0.95rem; line-height: 1.5;">Godavali Road, Panchgani,
+                                Pincode 412805,<br>
+                                Taluka Mahableshwar, Dist - Satara. Maharastra. India.</p>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; gap: 1.2rem; margin-bottom: 2rem;">
+                        <div
+                            style="width: 48px; height: 48px; background-color: #fceceb; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                            <i class="fa-solid fa-phone" style="color: #d31e33; font-size: 1.2rem;"></i>
+                        </div>
+                        <div>
+                            <h4
+                                style="font-family: 'Playfair Display', serif; font-size: 1.2rem; margin-bottom: 0.3rem; color: #1a1a1a;">
+                                Phone</h4>
+                            <p style="color: #666; font-size: 0.95rem; line-height: 1.5;">+91 9773737737<br>
+                                +91 8766785675</p>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; gap: 1.2rem; margin-bottom: 2rem;">
+                        <div
+                            style="width: 48px; height: 48px; background-color: #fceceb; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                            <i class="fa-solid fa-envelope" style="color: #d31e33; font-size: 1.2rem;"></i>
+                        </div>
+                        <div>
+                            <h4
+                                style="font-family: 'Playfair Display', serif; font-size: 1.2rem; margin-bottom: 0.3rem; color: #1a1a1a;">
+                                Email</h4>
+                            <p style="color: #666; font-size: 0.95rem; line-height: 1.5;">astonhostelpanchgani@gmail.com
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Map Card -->
+                    <div
+                        style="position: relative; border-radius: 12px; overflow: hidden; height: 300px; background-color: #e5e5e5;">
+                        <img src="assets/images/campus/map-placeholder.jpg" alt="Campus Map"
+                            style="width: 100%; height: 100%; object-fit: cover; opacity: 0.6;">
+
+                        <!-- Pseudo-Map Pin -->
+                        <div
+                            style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 40px; height: 40px; background-color: #d31e33; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 10px rgba(0,0,0,0.2);">
+                            <i class="fa-solid fa-graduation-cap" style="color: #fff; font-size: 1rem;"></i>
+                        </div>
+
+                        <div
+                            style="position: absolute; bottom: 0; left: 0; right: 0; padding: 1rem; background: linear-gradient(to top, rgba(255,255,255,0.9), transparent); display: flex; justify-content: space-between; align-items: flex-end;">
+                            <span
+                                style="font-size: 0.85rem; font-weight: 600; color: #333; background: rgba(255,255,255,0.8); padding: 0.2rem 0.6rem; border-radius: 4px;">Aston
+                                High Campus North</span>
+                            <a href="#"
+                                style="font-size: 0.85rem; font-weight: 700; color: #d31e33; text-decoration: none;">Open
+                                in Maps <i class="fa-solid fa-arrow-right" style="font-size: 0.7rem;"></i></a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="assets/images/logo/Aston footer img.png" alt="Aston High School"
+                        style="height: 50px; margin-bottom: 1.5rem;">
+                    <p style="color: #666; font-size: 0.8rem; line-height: 1.5; margin-bottom: 0.5rem;">
+                        Godavali Road, Panchgani, Pincode 412805, Taluka Mahableshwar, Dist - Satara. Maharastra.
+                        India.<br><br>
+                        +91 9773737737<br>
+                        +91 8766785675<br>
+                        astonhostelpanchgani@gmail.com
+                    </p>
+                    <div style="margin-top: 1rem; display: flex; gap: 0.5rem;">
+                        <a href="#"
+                            style="background: #222; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; border-radius: 50%; color: white;"><i
+                                class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#"
+                            style="background: #222; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; border-radius: 50%; color: white;"><i
+                                class="fa-brands fa-twitter"></i></a>
+                        <a href="#"
+                            style="background: #222; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; border-radius: 50%; color: white;"><i
+                                class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h5>Quick Links</h5>
+                    <ul class="footer-links">
+                        <li><a href="#">Campus Calendar</a></li>
+                        <li><a href="#">School Directory</a></li>
+                        <li><a href="#">Parent Portal</a></li>
+                        <li><a href="#">Careers at Aston</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h5>Resources</h5>
+                    <ul class="footer-links">
+                        <li><a href="#">Parent Association</a></li>
+                        <li><a href="#">Alumni Network</a></li>
+                        <li><a href="#">Giving to Aston</a></li>
+                        <li><a href="#">Board of Trustees</a></li>
+                        <li><a href="#">Summer Programs</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h5>Stay Connected</h5>
+                    <p style="margin-bottom: 1rem; font-size: 0.8rem;">Receive the latest news and updates from Aston
+                        High School directly to your inbox.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Email Address">
+                        <button type="button" class="btn btn-primary" style="width: 100%;">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 Aston High School. All rights reserved.</p>
+                <div style="display: flex; gap: 2rem;">
+                    <a href="#">Terms of Use</a>
+                    <a href="#">Accessibility</a>
+                    <a href="#">Site Map</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>
