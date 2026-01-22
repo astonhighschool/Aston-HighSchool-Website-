@@ -235,7 +235,7 @@ document.addEventListener('DOMContentLoaded', () => {
         imageWrapper.className = 'popup-image-wrapper';
 
         const img = document.createElement('img');
-        img.src = 'assets/images/admissions/Addmission banner.jpg';
+        img.src = 'assets/images/admissions/Addmission banner.jpeg';
         img.alt = 'Admissions Open';
 
         const separator = document.createElement('div');
@@ -316,4 +316,17 @@ document.addEventListener('DOMContentLoaded', () => {
         // Change every 4.5 seconds
         setInterval(showNextTestimonial, 4500);
     }
+
+    // Scroll Animation for New Section
+    const revealElements = document.querySelectorAll('.reveal-text, .reveal-up');
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('reveal-visible');
+                revealObserver.unobserve(entry.target); // Only animate once
+            }
+        });
+    }, { threshold: 0.15 });
+
+    revealElements.forEach((el) => revealObserver.observe(el));
 });

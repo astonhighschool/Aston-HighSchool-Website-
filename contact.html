@@ -37,7 +37,7 @@
                     <div style="display: flex; flex-direction: column; line-height: 1.1; justify-content: center;">
                         <span
                             style="font-size: 1.5rem; font-weight: 700; font-family: var(--font-serif); letter-spacing: 1.5px;">NACHIKETAS</span>
-                        <span style="font-size: 0.8rem; font-weight: 700; letter-spacing: 1px;">HIGH SCHOOL</span>
+                        <span style="font-size: 0.8rem; font-weight: 700; letter-spacing: 1px;">HIGH SCHOOL & JR COLLEGE</span>
                     </div>
                 </div>
             </a>
@@ -123,7 +123,7 @@
                             <label for="message"
                                 style="display: block; margin-bottom: 0.5rem; font-size: 0.85rem; font-weight: 700; color: #333; text-transform: uppercase; letter-spacing: 0.5px;">Message</label>
                             <textarea id="message" rows="6" placeholder="How can we help you?"
-                                style="width: 100%; padding: 0.9rem; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem; color: #333; resize: vertical;"></textarea>
+                                style="width: 100%; padding: 0.9rem; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem; color: #333; resize: vertical; font-family: var(--font-sans);"></textarea>
                         </div>
 
                         <button type="submit" class="btn btn-primary"
@@ -144,10 +144,9 @@
                         <div>
                             <h4
                                 style="font-family: 'Playfair Display', serif; font-size: 1.2rem; margin-bottom: 0.3rem; color: #1a1a1a;">
-                                Address</h4>
-                            <p style="color: #666; font-size: 0.95rem; line-height: 1.5;">Godavali Road, Panchgani,
-                                Pincode 412805,<br>
-                                Taluka Mahableshwar, Dist - Satara. Maharastra. India.</p>
+                                <!-- Updated Address -->
+                                <p style="color: #666; font-size: 0.95rem; line-height: 1.5;">Godavali Road, Panchgani,
+                                    Maharashtra 412805</p>
                         </div>
                     </div>
 
@@ -182,22 +181,19 @@
                     <!-- Map Card -->
                     <div
                         style="position: relative; border-radius: 12px; overflow: hidden; height: 300px; background-color: #e5e5e5;">
-                        <img src="assets/images/campus/map-placeholder.jpg" alt="Campus Map"
-                            style="width: 100%; height: 100%; object-fit: cover; opacity: 0.6;">
-
-                        <!-- Pseudo-Map Pin -->
-                        <div
-                            style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 40px; height: 40px; background-color: #d31e33; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 10px rgba(0,0,0,0.2);">
-                            <i class="fa-solid fa-graduation-cap" style="color: #fff; font-size: 1rem;"></i>
-                        </div>
+                        <!-- Google Map Iframe -->
+                        <iframe
+                            src="https://maps.google.com/maps?q=Aston%20High%20School%20%26%20Junior%20College%20Panchgani&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
 
                         <div
-                            style="position: absolute; bottom: 0; left: 0; right: 0; padding: 1rem; background: linear-gradient(to top, rgba(255,255,255,0.9), transparent); display: flex; justify-content: space-between; align-items: flex-end;">
+                            style="position: absolute; bottom: 0; left: 0; right: 0; padding: 1rem; background: linear-gradient(to top, rgba(255,255,255,0.9), transparent); display: flex; justify-content: space-between; align-items: flex-end; pointer-events: none;">
                             <span
-                                style="font-size: 0.85rem; font-weight: 600; color: #333; background: rgba(255,255,255,0.8); padding: 0.2rem 0.6rem; border-radius: 4px;">Aston
-                                High Campus North</span>
-                            <a href="#"
-                                style="font-size: 0.85rem; font-weight: 700; color: #d31e33; text-decoration: none;">Open
+                                style="font-size: 0.85rem; font-weight: 600; color: #333; background: rgba(255,255,255,0.9); padding: 0.4rem 0.8rem; border-radius: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">Aston
+                                Hostel & Nachiketas High School & Jr College Campus</span>
+                            <a href="https://maps.app.goo.gl/exampleLink" target="_blank"
+                                style="font-size: 0.85rem; font-weight: 700; color: #d31e33; text-decoration: none; pointer-events: auto; background: white; padding: 0.4rem 0.8rem; border-radius: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">Open
                                 in Maps <i class="fa-solid fa-arrow-right" style="font-size: 0.7rem;"></i></a>
                         </div>
                     </div>
@@ -216,8 +212,7 @@
                     <img src="assets/images/logo/Aston footer img.png" alt="Aston High School"
                         style="height: 50px; margin-bottom: 1.5rem;">
                     <p style="color: #666; font-size: 0.8rem; line-height: 1.5; margin-bottom: 0.5rem;">
-                        Godavali Road, Panchgani, Pincode 412805, Taluka Mahableshwar, Dist - Satara. Maharastra.
-                        India.<br><br>
+                        Godavali Road, Panchgani, Maharashtra 412805<br><br>
                         +91 9773737737<br>
                         +91 8766785675<br>
                         astonhostelpanchgani@gmail.com
@@ -236,24 +231,22 @@
                 </div>
 
                 <div class="footer-col">
-                    <h5>Quick Links</h5>
+                    <h5>Navigation</h5>
                     <ul class="footer-links">
-                        <li><a href="#">Campus Calendar</a></li>
-                        <li><a href="#">School Directory</a></li>
-                        <li><a href="#">Parent Portal</a></li>
-                        <li><a href="#">Careers at Aston</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="admissions.html">Admissions</a></li>
+                        <li><a href="academics.html">Academics</a></li>
+                        <li><a href="facilities.html">Facilities</a></li>
                     </ul>
                 </div>
 
                 <div class="footer-col">
-                    <h5>Resources</h5>
+                    <h5 style="visibility: hidden;">Links</h5>
                     <ul class="footer-links">
-                        <li><a href="#">Parent Association</a></li>
-                        <li><a href="#">Alumni Network</a></li>
-                        <li><a href="#">Giving to Aston</a></li>
-                        <li><a href="#">Board of Trustees</a></li>
-                        <li><a href="#">Summer Programs</a></li>
+                        <li><a href="student-life.html">Student Life</a></li>
+                        <li><a href="news.html">News</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
                     </ul>
                 </div>
 
@@ -271,9 +264,7 @@
             <div class="footer-bottom">
                 <p>&copy; 2024 Aston High School. All rights reserved.</p>
                 <div style="display: flex; gap: 2rem;">
-                    <a href="#">Terms of Use</a>
-                    <a href="#">Accessibility</a>
-                    <a href="#">Site Map</a>
+                    <!-- Removed Terms links -->
                 </div>
             </div>
         </div>
