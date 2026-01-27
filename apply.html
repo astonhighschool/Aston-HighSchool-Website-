@@ -12,39 +12,41 @@
 <body>
 
     <!-- Header -->
+    <!-- Header -->
     <header>
-        <div class="container navbar">
-            <a href="index.html" class="logo"
-                style="display: flex; align-items: center; text-decoration: none; color: inherit;">
-                <!-- Aston Group (Logo + Text) -->
-                <div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
-                    <img src="assets/images/logo/Aston logo.jpeg" alt="Aston High School Logo"
-                        style="height: 60px; width: auto; margin-bottom: 5px;">
-                    <div style="display: flex; flex-direction: column; line-height: 1.1; justify-content: center;">
-                        <span
-                            style="font-size: 1.5rem; font-weight: 700; font-family: var(--font-serif); letter-spacing: 1.5px;">ASTON</span>
-                        <span style="font-size: 0.8rem; font-weight: 700; letter-spacing: 1px;">HOSTEL</span>
-                    </div>
-                </div>
+        <!-- 1. Top Utility Bar -->
+        <div class="top-utility-bar">
+            <div class="utility-container">
+                <div class="utility-item"><i class="fa-solid fa-phone"></i> +91 9773737737 / +91 8766785675</div>
+                <div class="utility-item"><i class="fa-solid fa-envelope"></i> astonhostelpanchgani@gmail.com</div>
+                <div class="utility-item"><i class="fa-solid fa-location-dot"></i> Godavali Road, Panchgani, Pincode
+                    412805</div>
+            </div>
+        </div>
 
-                <!-- Vertical Separator -->
-                <div style="height: 50px; width: 1px; background-color: #333; opacity: 0.3; margin: 0 1.5rem;"></div>
-
-                <!-- Nachiketas Group (Logo + Text) -->
-                <div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
-                    <img src="assets/images/logo/Nachiketas School.jpg" alt="Nachiketas School Logo"
-                        style="height: 60px; width: auto; margin-bottom: 5px;">
-                    <div style="display: flex; flex-direction: column; line-height: 1.1; justify-content: center;">
-                        <span
-                            style="font-size: 1.5rem; font-weight: 700; font-family: var(--font-serif); letter-spacing: 1.5px;">NACHIKETAS</span>
-                        <span style="font-size: 0.8rem; font-weight: 700; letter-spacing: 1px;">HIGH SCHOOL & JR COLLEGE</span>
+        <!-- 2. Main Header Bar -->
+        <div class="main-header-bar">
+            <div class="main-header-container">
+                <a href="index.html" class="branding-left">
+                    <img src="assets/images/logo/Aston logo.jpeg" alt="Aston High School Logo" class="logo-school">
+                    <div class="branding-text">
+                        <span class="brand-title">ASTON HOSTEL</span>
+                        <span class="brand-subtitle">High School AND Jr. College</span>
                     </div>
+                </a>
+                <div class="header-cta">
+                    <a href="apply.html" class="btn-apply">Admissions Open</a>
                 </div>
-            </a>
-            <nav>
-                <ul class="nav-links">
+                <div class="hamburger"><i class="fa-solid fa-bars"></i></div>
+            </div>
+        </div>
+
+        <!-- 3. Primary Navigation Bar -->
+        <div class="primary-navbar-wrapper">
+            <nav class="primary-navbar">
+                <ul class="nav-menu">
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="admissions.html" style="color: var(--primary-red);">Admissions</a></li>
+                    <li><a href="admissions.html" class="active">Admissions</a></li>
                     <li><a href="academics.html">Academics</a></li>
                     <li><a href="facilities.html">Facilities</a></li>
                     <li><a href="student-life.html">Student Life</a></li>
@@ -53,8 +55,6 @@
                     <li><a href="contact.html">Contact Us</a></li>
                 </ul>
             </nav>
-            <div class="hamburger"><i class="fa-solid fa-bars"></i></div>
-            <!-- Removed Search and Apply buttons -->
         </div>
     </header>
 
@@ -179,13 +179,6 @@
                 <div class="footer-brand">
                     <img src="assets/images/logo/Aston footer img.png" alt="Aston High School"
                         style="height: 50px; margin-bottom: 1.5rem;">
-                    <p style="color: #666; font-size: 0.8rem; line-height: 1.5; margin-bottom: 0.5rem;">
-                        Godavali Road, Panchgani, Pincode 412805, Taluka Mahableshwar, Dist - Satara. Maharastra.
-                        India.<br><br>
-                        +91 9773737737<br>
-                        +91 8766785675<br>
-                        astonhostelpanchgani@gmail.com
-                    </p>
                     <div style="margin-top: 1rem; display: flex; gap: 0.5rem;">
                         <a href="#"
                             style="background: #222; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; border-radius: 50%; color: white;"><i
@@ -193,10 +186,22 @@
                         <a href="#"
                             style="background: #222; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; border-radius: 50%; color: white;"><i
                                 class="fa-brands fa-twitter"></i></a>
-                        <a href="#"
+                        <a href="https://www.instagram.com/astonhostel/"
                             style="background: #222; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; border-radius: 50%; color: white;"><i
                                 class="fa-brands fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/@astonhostel1969"
+                            style="background: #222; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; border-radius: 50%; color: white;"><i
+                                class="fa-brands fa-youtube"></i></a>
                     </div>
+                    <!-- Desktop Contact Info (Visible only on Desktop) -->
+                    <p class="desktop-contact-info"
+                        style="color: #666; font-size: 0.8rem; line-height: 1.5; margin-top: 1.5rem; text-align: left;">
+                        Godavali Road, Panchgani, Pincode 412805, Taluka Mahableshwar, Dist - Satara. Maharastra.
+                        India.<br><br>
+                        +91 9773737737<br>
+                        +91 8766785675<br>
+                        astonhostelpanchgani@gmail.com
+                    </p>
                 </div>
 
                 <div class="footer-col">
@@ -227,6 +232,16 @@
                         <input type="email" placeholder="Email Address">
                         <button type="button" class="btn btn-primary" style="width: 100%;">Subscribe</button>
                     </form>
+
+                    <!-- Mobile Contact Details (Visible only on Mobile) -->
+                    <p class="mobile-contact-info"
+                        style="color: #666; font-size: 0.8rem; line-height: 1.5; margin-top: 1.5rem;">
+                        Godavali Road, Panchgani, Pincode 412805, Taluka Mahableshwar, Dist - Satara. Maharastra.
+                        India.<br><br>
+                        +91 9773737737<br>
+                        +91 8766785675<br>
+                        astonhostelpanchgani@gmail.com
+                    </p>
                 </div>
             </div>
 

@@ -6,7 +6,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Mobile Menu Toggle
     const hamburger = document.querySelector('.hamburger');
-    const navLinks = document.querySelector('.nav-links');
+    // Updated selector to match HTML structure
+    const navLinks = document.querySelector('.primary-navbar-wrapper');
 
     // Create overlay if it doesn't exist
     let overlay = document.querySelector('.nav-overlay');
@@ -20,10 +21,10 @@ document.addEventListener('DOMContentLoaded', () => {
         function toggleMenu() {
             navLinks.classList.toggle('nav-active');
             overlay.classList.toggle('active');
-            hamburger.classList.toggle('toggle'); // For animation if we add it
+            hamburger.classList.toggle('toggle');
             document.body.classList.toggle('menu-open');
 
-            // Icon toggle (Optional: Change bars to times)
+            // Icon toggle 
             const icon = hamburger.querySelector('i');
             if (icon) {
                 if (navLinks.classList.contains('nav-active')) {
@@ -329,4 +330,19 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { threshold: 0.15 });
 
     revealElements.forEach((el) => revealObserver.observe(el));
+
+    // WhatsApp Floating Button
+    function initWhatsAppButton() {
+        if (document.querySelector('.whatsapp-float')) return;
+
+        const waLink = document.createElement('a');
+        waLink.href = 'https://api.whatsapp.com/send?phone=919773737737&text=Hi';
+        waLink.className = 'whatsapp-float';
+        waLink.target = '_blank';
+        waLink.innerHTML = '<i class="fa-brands fa-whatsapp"></i>';
+
+        document.body.appendChild(waLink);
+    }
+
+    initWhatsAppButton();
 });

@@ -1,20 +1,29 @@
-/* Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600&family=Libre+Franklin:wght@400;500;600&display=swap');
 
 :root {
-  --primary-red: #D32F2F;
+  --primary-red: #8B0000;
+  /* Deep Maroon */
   --primary-red-hover: #b71c1c;
+  --secondary-gradient: linear-gradient(to right, #6a0000, #8B0000);
+  /* Maroon Gradient */
+  --accent-gold: #D4AF37;
   --text-dark: #333333;
   --text-light: #555555;
   --text-white: #ffffff;
   --bg-white: #ffffff;
   --bg-light: #f9f9f9;
+  --bg-utility: #f4f4f4;
+  /* Off-white for utility bar */
   --footer-bg: #111111;
 
   --font-serif: 'Playfair Display', serif;
   --font-sans: 'Inter', sans-serif;
+  --font-nav: 'Poppins', sans-serif;
+  /* For Navigation */
 
   --container-width: 1200px;
+  --radius-nav: 8px;
+  /* Rounded corners for nav */
   --spacing-sm: 1rem;
   --spacing-md: 2rem;
   --spacing-lg: 4rem;
@@ -32,7 +41,6 @@ body {
   color: var(--text-dark);
   line-height: 1.6;
   background-color: var(--bg-white);
-  overflow-x: hidden;
   margin: 0;
   padding: 0;
 }
@@ -40,6 +48,8 @@ body {
 html {
   margin: 0;
   padding: 0;
+  /* overflow-x: hidden; REMOVED to fix sticky nav */
+  width: 100%;
 }
 
 img {
@@ -157,89 +167,422 @@ p {
   margin-bottom: 1rem;
 }
 
-/* Header */
+/* Header & Navigation Redesign */
 header {
-  position: sticky;
+  position: relative;
   top: 0;
   z-index: 1000;
-  background-color: white;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  background-color: var(--bg-white);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  /* Soft shadow */
+  font-family: var(--font-sans);
 }
 
-.navbar {
+/* 1. Top Utility Bar */
+.top-utility-bar {
+  background-color: var(--bg-utility);
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  font-size: 0.85rem;
+  color: var(--text-light);
+}
+
+.utility-container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 1.5rem;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
+  /* Align to right */
   align-items: center;
-  max-width: 100% !important;
-  /* Force full width to reduce margin */
-  padding: 0 3rem;
-  /* Add padding similar to other full-width sections or slight inset */
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  /* Allow wrapping for long content */
 }
 
-.logo {
+@media (max-width: 1100px) {
+  .utility-container {
+    justify-content: center;
+    gap: 0.5rem 1rem;
+  }
+}
+
+.utility-item {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-weight: 800;
-  font-size: 1.2rem;
-  letter-spacing: 2px;
-  color: var(--text-dark);
-  /* Will handle color change on hero */
 }
 
-.logo div {
+.utility-item i {
+  color: var(--primary-red);
   font-size: 0.9rem;
-  /* Reduced from parent 1.2rem */
-  font-weight: 700;
+}
+
+/* 2. Main Header Bar (Logo + CTA) */
+.main-header-bar {
+  background-color: white;
+  padding: 0;
+}
+
+.main-header-container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 1rem 1.5rem;
+  display: flex;
+  justify-content: center;
+  /* Center the branding */
+  align-items: center;
+  position: relative;
+  /* For absolute positioning of CTA/Hamburger */
+}
+
+.branding-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
   color: var(--text-dark);
-  font-family: sans-serif;
+}
+
+.logo-school {
+  height: 95px;
+  /* Slightly larger logo */
+  width: auto;
+}
+
+.branding-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+  height: 95px;
+  justify-content: center;
+  padding: 0 1rem;
+  box-sizing: border-box;
+}
+
+.brand-title {
+  font-family: var(--font-serif);
+  font-size: 3rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: var(--text-dark);
+  line-height: 1;
+  margin-bottom: -5px;
+  /* Pull text closer to subtitle */
+}
+
+.brand-subtitle {
+  font-family: var(--font-nav);
+  font-size: 1.3rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: var(--primary-red);
+  text-transform: uppercase;
   line-height: 1.2;
 }
 
-.stat-item h3,
-.stat-item p {
-  color: black !important;
+.header-cta {
+  position: absolute;
+  right: 1.5rem;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
-.nav-links {
-  display: flex;
-  gap: 2rem;
-}
-
-.nav-links a {
-  font-size: 0.8rem;
+.header-cta .btn-apply {
+  background-color: var(--primary-red);
+  color: white;
+  padding: 10px 24px;
+  border-radius: 4px;
   font-weight: 600;
+  font-size: 0.9rem;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  position: relative;
-  display: inline-block;
-  overflow: hidden;
-  padding-bottom: 5px;
-  padding-top: 5px;
-  /* Added to vertically center the text */
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(139, 0, 0, 0.2);
 }
 
-.nav-links a::after {
+.header-cta .btn-apply:hover {
+  background-color: var(--primary-red-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 10px rgba(139, 0, 0, 0.25);
+}
+
+/* 3. Primary Navigation Bar */
+.primary-navbar-wrapper {
+  background: var(--secondary-gradient);
+  /* Moved here for full width */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  /* Moved here */
+  padding-bottom: 0px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.primary-navbar {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  /* Background and shadow moved to wrapper */
+  padding: 0 1rem;
+  display: flex;
+  justify-content: space-between;
+  /* Space for items */
+  align-items: center;
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  width: 100%;
+  justify-content: space-between;
+  /* Distribute items */
+  padding: 0;
+  margin: 0;
+}
+
+.nav-menu li {
+  position: relative;
+  flex-grow: 1;
+  text-align: center;
+  border: none;
+  /* Reset previous border */
+}
+
+/* Soft Separators */
+.nav-menu li:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 25%;
+  height: 50%;
+  width: 1px;
+  background-color: rgba(255, 255, 255, 0.15);
+  /* Subtle smooth line */
+}
+
+.nav-menu a {
+  display: block;
+  padding: 16px 12px;
+  color: rgba(255, 255, 255, 0.9);
+  font-family: var(--font-nav);
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+  text-transform: capitalize;
+  /* Cleaner look than uppercase */
+}
+
+/* Hover Effect - Gold Line Animation */
+.nav-menu a::before {
   content: '';
   position: absolute;
   bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 4px;
-  background: var(--primary-red);
-  transform: translateX(-105%);
-  /* Moved further left to prevent pixel bleeding */
-  transition: all 0.5s;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0%;
+  height: 3px;
+  background-color: var(--accent-gold);
+  transition: width 0.3s ease;
 }
 
-.nav-links a:hover::after {
-  transform: translateX(0%);
+.nav-menu a:hover {
+  color: white;
+  background-color: rgba(0, 0, 0, 0.1);
+  /* Slight darken */
 }
 
-.header-actions {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
+.nav-menu a:hover::before {
+  width: 80%;
+  /* Expand line */
+}
+
+/* Active State */
+.nav-menu a.active {
+  color: white;
+  font-weight: 600;
+  background-color: rgba(0, 0, 0, 0.15);
+}
+
+.nav-menu a.active::before {
+  width: 80%;
+}
+
+
+/* Hamburger Styles (Mobile) */
+.hamburger {
+  display: none;
+  color: var(--text-dark);
+  /* Dark in main header */
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .utility-container {
+    justify-content: center;
+    gap: 1rem;
+    font-size: 0.75rem;
+  }
+
+  .main-header-container {
+    padding: 1rem;
+  }
+
+  .brand-title {
+    font-size: 1.4rem;
+  }
+
+  .brand-subtitle {
+    font-size: 0.7rem;
+  }
+
+  .logo-school {
+    height: 60px;
+  }
+
+  .header-cta {
+    display: none;
+    /* Hide CTA on small mobile header, maybe move to menu */
+  }
+
+  /* Mobile Navigation */
+  .primary-navbar {
+    background: transparent;
+    box-shadow: none;
+    padding: 0;
+    border-radius: 0;
+  }
+
+  .hamburger {
+    display: block;
+    position: absolute;
+    /* Fix absolute position for centered header */
+    right: 1.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1002;
+  }
+
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    /* Slide out */
+    width: 80%;
+    height: 100vh;
+    background-color: white;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 4rem;
+    transition: right 0.4s ease;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+    z-index: 1001;
+  }
+
+  .nav-menu.active {
+    right: 0;
+    /* Slide in */
+  }
+
+  .nav-menu li {
+    text-align: left;
+    width: 100%;
+  }
+
+  .nav-menu li::after {
+    display: none;
+    /* No separators on mobile */
+  }
+
+  .nav-menu a {
+    color: var(--text-dark);
+    padding: 1rem 2rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    font-size: 1.1rem;
+    /* Larger tap targets */
+  }
+
+  .nav-menu a:hover {
+    background-color: var(--bg-light);
+    color: var(--primary-red);
+  }
+
+  .nav-menu a::before {
+    display: none;
+    /* No hover line on mobile */
+  }
+}
+
+.nav-links li:first-child {
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.nav-links a {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: white;
+  padding: 14px 20px;
+  transition: background 0.3s;
+  text-decoration: none;
+}
+
+.nav-links a::after {
+  display: none;
+  /* Remove previous underline effect */
+}
+
+.nav-links a:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  /* Slight darken on hover */
+}
+
+.hamburger {
+  display: none;
+  /* Manage hamburger later for mobile */
+  color: var(--text-dark);
+  /* Or white if in nav bar */
+  font-size: 1.5rem;
+  cursor: pointer;
+  position: absolute;
+  right: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .header-branding {
+    padding: 1rem;
+    justify-content: space-between;
+  }
+
+  .header-nav {
+    display: none;
+    /* Hide standard nav on mobile, use toggle */
+  }
+
+  .hamburger {
+    display: block;
+    top: 50px;
+    /* Adjust based on branding height */
+  }
+
+  /* Mobile Menu Styling (Needs update for new structure) */
+  .nav-active {
+    display: flex !important;
+    top: 100%;
+    /* Dropdown from header */
+    background: white;
+    /* ... existing mobile styles ... */
+  }
 }
 
 /* Hero Section */
@@ -3440,21 +3783,30 @@ footer {
   margin-top: 1rem;
   padding: 12px;
   font-size: 1rem;
+}
 
-  /* Global Footer Dark Theme */
-  footer {
-    background-color: #1a1a1a;
-    color: #ccc;
-    padding: 4rem 0;
-  }
+/* Global Footer Dark Theme */
+footer {
+  background-color: #1a1a1a;
+  color: #ccc;
+  padding: 4rem 0;
+}
 
-  .footer-brand h3 {
-    color: white !important;
-  }
+/* Contact Info Visibility Toggle */
+.mobile-contact-info {
+  display: none;
+}
 
-  .footer-brand p {
-    color: #bbb !important;
-  }
+.desktop-contact-info {
+  display: block;
+}
+
+.footer-brand h3 {
+  color: white !important;
+}
+
+.footer-brand p {
+  color: #bbb !important;
 }
 
 /* Global Footer Dark Theme */
@@ -3485,6 +3837,64 @@ footer {
   padding: 2.5rem 0;
 }
 
+/* CTA Box Styling */
+.cta-box {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
+  /* Default overlay, image set by modifier */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
+  padding: 4rem 2rem;
+  border-radius: 8px;
+  text-align: center;
+  margin: 4rem auto;
+  max-width: var(--container-width);
+}
+
+.cta-home {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../assets/images/Home/Last card bg img.jpg');
+}
+
+.cta-admissions {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../assets/images/Home/Students img.avif');
+  background-position: top;
+}
+
+.cta-academics {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../assets/images/Home/Computer lab img.avif');
+}
+
+.cta-student-life {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../assets/images/Home/Activities img.avif');
+}
+
+.cta-about {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../assets/images/Home/Assembly img.avif');
+}
+
+.cta-box h2,
+.cta-box h3,
+.cta-box p {
+  color: white !important;
+}
+
+.cta-box .btn-outline-dark {
+  border: 2px solid white !important;
+  color: white !important;
+  background: transparent !important;
+  padding: 10px 24px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.cta-box .btn-outline-dark:hover {
+  background: white !important;
+  color: var(--primary-red) !important;
+}
+
 /* =========================================
    Mobile Responsiveness & Hamburger Menu
    ========================================= */
@@ -3501,12 +3911,70 @@ footer {
   /* Above overlay */
 }
 
+/* Responsive Header Styles */
+@media (max-width: 992px) {
+  .main-header-container {
+    flex-direction: column;
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .branding-left {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.5rem;
+  }
+
+  .logo-school {
+    height: 70px;
+    width: auto;
+  }
+
+  .branding-text {
+    height: auto;
+    padding: 0;
+    align-items: center;
+  }
+
+  .brand-title {
+    font-size: 1.8rem;
+    line-height: 1.2;
+    margin-bottom: 0;
+  }
+
+  .brand-subtitle {
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    line-height: 1.4;
+  }
+
+  .header-cta {
+    position: static;
+    transform: none;
+    margin-top: 0.5rem;
+  }
+
+  /* Hamburger positioning fixes */
+  .hamburger {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    display: block;
+    z-index: 2100;
+    cursor: pointer;
+  }
+
+  /* Hide Top Bar on Mobile */
+  .top-utility-bar {
+    display: none;
+  }
+}
+
 /* Mobile Navigation Styles */
 @media (max-width: 900px) {
   .navbar {
     padding: 1rem 1.5rem;
     position: relative;
-    /* Ensure navbar items align properly */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -3516,39 +3984,86 @@ footer {
     display: block;
   }
 
-  .nav-links {
+  /* Updated selector from .nav-links to .primary-navbar-wrapper */
+  .primary-navbar-wrapper {
     position: fixed;
     top: 0;
     right: 0;
     height: 100vh;
     width: 70%;
     max-width: 300px;
-    background-color: white;
+    background-color: var(--primary-red);
+    /* Red Background */
     box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
     display: flex;
-    /* Ensure flex is active */
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    /* Start from top to allow scrolling */
-    padding-top: 80px;
-    /* Space for close button/hamburger area */
+    padding-top: 4rem;
+    /* Reduced spacing */
     transform: translateX(100%);
     transition: transform 0.3s ease-in-out;
     z-index: 2000;
-    /* High z-index */
     overflow-y: auto;
-    /* Allow scrolling */
   }
 
-  .nav-links.nav-active {
+  .primary-navbar-wrapper.nav-active {
     transform: translateX(0%);
   }
 
-  .nav-links li {
-    margin: 1.5rem 0;
+  /* Adjust internal list items */
+  /* Adjust internal list items */
+  .primary-navbar-wrapper ul li {
+    margin: 1rem 0;
+    /* Reduced margin */
     width: 100%;
     text-align: center;
+  }
+
+  /* Force Link Color to Black on Mobile */
+  /* Force Link Color to White on Mobile */
+  .primary-navbar-wrapper a {
+    color: white !important;
+    /* White text */
+    font-size: 1.3rem;
+    font-weight: 700;
+    display: block;
+    text-decoration: none;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+  .primary-navbar-wrapper a:hover,
+  .primary-navbar-wrapper a:active,
+  .primary-navbar-wrapper a:focus {
+    color: var(--accent-gold) !important;
+    /* Gold on interactions */
+    background: transparent !important;
+  }
+
+  /* Ensure flex column for the ul */
+  .primary-navbar-wrapper ul {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+
+    /* CRITICAL FIX: Reset conflicting legacy properties */
+    position: static !important;
+    transform: none !important;
+    background: transparent !important;
+    height: auto !important;
+    box-shadow: none !important;
+    right: auto !important;
+  }
+
+  /* CRITICAL FIX: Override generic .nav-active that pushes menu down */
+  .primary-navbar-wrapper.nav-active {
+    transform: translateX(0%);
+    top: 0 !important;
+    display: flex !important;
   }
 
   /* Overlay */
@@ -3591,29 +4106,20 @@ footer {
   }
 
   h1 {
-    font-size: 2.5rem;
+    font-size: 1.8rem;
+    /* Reduced for mobile */
   }
 
   h2 {
-    font-size: 2rem;
-  }
-
-  h3 {
     font-size: 1.5rem;
   }
 
-  /* Header */
-  .logo span:first-child {
-    font-size: 1.8rem !important;
+  h3 {
+    font-size: 1.2rem;
   }
 
-  .logo span:last-child {
-    font-size: 0.7rem !important;
-  }
+  /* Header Overrides handled by 992px query above */
 
-  .logo img {
-    height: 45px !important;
-  }
 
   /* Hero */
   .hero {
@@ -3623,7 +4129,7 @@ footer {
   }
 
   .hero h1 {
-    font-size: 2.8rem;
+    font-size: 2.2rem;
   }
 
   /* Feature Cards */
@@ -3686,8 +4192,33 @@ footer {
 
   /* Footer */
   .footer-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: 2rem;
+  }
+
+  /* Toggle Contact Info for Mobile */
+  .desktop-contact-info {
+    display: none;
+  }
+
+  .mobile-contact-info {
+    display: block;
+  }
+
+  .footer-brand {
+    grid-column: 1 / -1;
+    text-align: center;
+  }
+
+  /* Make the Connect/Newsletter column full width */
+  .footer-col:last-child {
+    grid-column: 1 / -1;
+    text-align: center;
+  }
+
+  /* Ensure proper alignment for nav columns */
+  .footer-col {
+    text-align: left;
   }
 
   .footer-bottom {
@@ -3722,6 +4253,64 @@ footer {
     /* 2x2 grid for stats on mobile */
   }
 
+  /* Educational Experience Mobile Layout */
+  .exp-grid {
+    grid-template-columns: 1fr !important;
+    gap: 3rem !important;
+  }
+
+  .exp-left {
+    padding-right: 0 !important;
+    margin-bottom: 2rem;
+  }
+
+  .exp-right {
+    border-left: none !important;
+    padding-left: 0 !important;
+    border-top: 1px solid #ccc;
+    /* Add top border to separate */
+    padding-top: 2rem;
+  }
+
+  /* Contact Page Mobile Fixes */
+  .contact-layout {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+
+  .contact-form-card {
+    padding: 2rem 1.5rem !important;
+  }
+
+  .contact-form-card form>div:first-child {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+
+  .contact-info-col {
+    order: -1;
+  }
+
+  .contact-info-col>div {
+    margin-bottom: 1.5rem !important;
+  }
+
+  /* Ensure form inputs are full width */
+  .contact-form-card input,
+  .contact-form-card select,
+  .contact-form-card textarea {
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+
+  .exp-stats {
+    gap: 1.5rem !important;
+    flex-wrap: wrap;
+    /* in case they don't fit */
+    justify-content: space-between;
+  }
+
   /* Admissions Page */
   .timeline::before {
     left: 15px;
@@ -3733,6 +4322,132 @@ footer {
 
   .timeline {
     padding-left: 3rem;
+  }
+
+  /* Mobile Page Headers */
+  .page-header,
+  .hero-academics,
+  .hero-admissions,
+  .hero-facilities,
+  .hero-student-life,
+  .hero-news,
+  .hero-about {
+    height: auto !important;
+    min-height: 300px !important;
+    background-position: center center !important;
+    background-size: cover !important;
+    padding: 3rem 1rem !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  /* Facilities Page Mobile Spacing Fix */
+  .facility-section {
+    padding: 1rem 0 !important;
+    /* Aggressive reduction */
+  }
+
+  .facility-section .split-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 0 !important;
+  }
+
+  .facility-section .split-layout.reverse-layout {
+    flex-direction: column;
+    /* Stack normally on mobile (Image first if HTML order is Image -> Content) */
+  }
+
+  .facility-section .image-wrapper {
+    margin: 0 !important;
+    width: 100% !important;
+    line-height: 0 !important;
+  }
+
+  .facility-section .content-wrapper {
+    margin: -4rem 0 0 0 !important;
+    padding: 0 1rem !important;
+    /* Negative margin pulls text up */
+  }
+
+  .facility-section .image-wrapper video,
+  .facility-section .image-wrapper img {
+    height: auto !important;
+    max-height: 300px;
+    margin-bottom: 0 !important;
+    display: block !important;
+  }
+
+  .facility-section .section-label {
+    margin-top: 0 !important;
+    display: inline-block !important;
+    line-height: 1;
+    margin-bottom: 0.25rem !important;
+  }
+
+  .facility-section h2 {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+
+  /* Specific Fix for Admissions Banner to show full image */
+  .hero-admissions {
+    background-size: contain !important;
+    background-repeat: no-repeat !important;
+    background-position: top center !important;
+    height: auto !important;
+    min-height: auto !important;
+    aspect-ratio: 16/9;
+    /* Maintain aspect ratio to prevent collapse */
+    width: 100%;
+  }
+
+  /* Ensure Hero Content (Text) is visible */
+  .hero-about {
+    background-size: 100% 100% !important;
+    background-position: center center !important;
+    height: auto !important;
+    min-height: 300px !important;
+  }
+
+  /* About Us Team Grid Mobile Fix */
+  .team-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+
+  .team-card {
+    border-right: none !important;
+    border-bottom: 1px solid #eaeaea;
+    padding-bottom: 2rem;
+    margin-bottom: 1rem;
+    width: 100% !important;
+  }
+
+  .team-card:last-child {
+    border-bottom: none !important;
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
+
+  /* News Headlines Mobile Fix */
+  .news-grid-triple {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 3rem !important;
+  }
+
+  .news-thumb {
+    height: 200px !important;
+    /* Ensure good image height */
+  }
+
+  /* Ensure Hero Content (Text) is visible */
+  .hero-content h1,
+  .page-header h1 {
+    font-size: 2.5rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
   }
 
   /* Facilities Grid (if used) */
@@ -4444,4 +5159,35 @@ body.menu-open {
 .reveal-visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+.facility-section {
+  padding: 0;
+}
+
+/* WhatsApp Floating Button */
+.whatsapp-float {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background-color: #25d366;
+  color: white;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 30px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.whatsapp-float:hover {
+  background-color: #128c7e;
+  transform: translateY(-5px);
+  color: white;
 }
