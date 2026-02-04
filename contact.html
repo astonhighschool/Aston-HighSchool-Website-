@@ -7,6 +7,7 @@
     <title>Contact Us | Aston High School</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="assets/images/logo/Aston logo.jpeg">
 </head>
 
 <body>
@@ -80,14 +81,15 @@
                 <!-- Left Column: Form -->
                 <div class="contact-form-card"
                     style="background: #fff; padding: 3rem; border-radius: 12px; border: 1px solid #eaeaea; box-shadow: 0 4px 6px rgba(0,0,0,0.02);">
-                    <form>
+                    <form action="https://formsubmit.co/astonhostelpanchgani@gmail.com" method="POST">
+                        <input type="hidden" name="_subject" value="New Contact Inquiry">
                         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem;">
                             <!-- First Name -->
                             <div>
                                 <label for="firstname"
                                     style="display: block; margin-bottom: 0.5rem; font-size: 0.85rem; font-weight: 700; color: #333; text-transform: uppercase; letter-spacing: 0.5px;">First
                                     Name</label>
-                                <input type="text" id="firstname" placeholder="e.g. John"
+                                <input type="text" id="firstname" name="first_name" placeholder="e.g. John" required
                                     style="width: 100%; padding: 0.9rem; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem; color: #333;">
                             </div>
                             <!-- Last Name -->
@@ -95,7 +97,7 @@
                                 <label for="lastname"
                                     style="display: block; margin-bottom: 0.5rem; font-size: 0.85rem; font-weight: 700; color: #333; text-transform: uppercase; letter-spacing: 0.5px;">Last
                                     Name</label>
-                                <input type="text" id="lastname" placeholder="e.g. Smith"
+                                <input type="text" id="lastname" name="last_name" placeholder="e.g. Smith" required
                                     style="width: 100%; padding: 0.9rem; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem; color: #333;">
                             </div>
                         </div>
@@ -104,14 +106,14 @@
                             <label for="email"
                                 style="display: block; margin-bottom: 0.5rem; font-size: 0.85rem; font-weight: 700; color: #333; text-transform: uppercase; letter-spacing: 0.5px;">Email
                                 Address</label>
-                            <input type="email" id="email" placeholder="email@example.edu"
+                            <input type="email" id="email" name="email" placeholder="email@example.edu" required
                                 style="width: 100%; padding: 0.9rem; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem; color: #333;">
                         </div>
 
                         <div style="margin-bottom: 1.5rem;">
                             <label for="subject"
                                 style="display: block; margin-bottom: 0.5rem; font-size: 0.85rem; font-weight: 700; color: #333; text-transform: uppercase; letter-spacing: 0.5px;">Subject</label>
-                            <select id="subject"
+                            <select id="subject" name="subject"
                                 style="width: 100%; padding: 0.9rem; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem; color: #333; background-color: #fff;">
                                 <option>General Inquiry</option>
                                 <option>Admissions</option>
@@ -123,7 +125,7 @@
                         <div style="margin-bottom: 2rem;">
                             <label for="message"
                                 style="display: block; margin-bottom: 0.5rem; font-size: 0.85rem; font-weight: 700; color: #333; text-transform: uppercase; letter-spacing: 0.5px;">Message</label>
-                            <textarea id="message" rows="6" placeholder="How can we help you?"
+                            <textarea id="message" name="message" rows="6" placeholder="How can we help you?" required
                                 style="width: 100%; padding: 0.9rem; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem; color: #333; resize: vertical; font-family: var(--font-sans);"></textarea>
                         </div>
 
@@ -261,9 +263,11 @@
                     <h5>Stay Connected</h5>
                     <p style="margin-bottom: 1rem; font-size: 0.8rem;">Receive the latest news and updates from Aston
                         High School directly to your inbox.</p>
-                    <form class="newsletter-form">
-                        <input type="email" placeholder="Email Address">
-                        <button type="button" class="btn btn-primary" style="width: 100%;">Subscribe</button>
+                    <form class="newsletter-form" action="https://formsubmit.co/astonhostelpanchgani@gmail.com"
+                        method="POST">
+                        <input type="hidden" name="_subject" value="New Newsletter Subscription">
+                        <input type="email" name="email" placeholder="Email Address" required>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Subscribe</button>
                     </form>
 
                     <!-- Mobile Contact Details (Visible only on Mobile) -->

@@ -7,6 +7,7 @@
     <title>Apply to Aston | Aston High School</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="assets/images/logo/Aston logo.jpeg">
 </head>
 
 <body>
@@ -69,11 +70,12 @@
                         application.</p>
                 </div>
 
-                <form class="app-form">
+                <form class="app-form" action="https://formsubmit.co/astonhostelpanchgani@gmail.com" method="POST">
+                    <input type="hidden" name="_subject" value="New Student Admission Application">
                     <div class="form-group" style="margin-bottom: 1.5rem;">
                         <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: #444;">Student
                             Full Name*</label>
-                        <input type="text" placeholder="Enter Student's full name" required
+                        <input type="text" name="student_name" placeholder="Enter Student's full name" required
                             style="width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: 4px; font-size: 1rem;">
                     </div>
 
@@ -82,13 +84,13 @@
                         <div class="form-group">
                             <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: #444;">Parent
                                 Email*</label>
-                            <input type="email" placeholder="Enter your email" required
+                            <input type="email" name="parent_email" placeholder="Enter your email" required
                                 style="width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: 4px; font-size: 1rem;">
                         </div>
                         <div class="form-group">
                             <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: #444;">Phone
                                 Number*</label>
-                            <input type="tel" placeholder="Enter phone number" required
+                            <input type="tel" name="phone" placeholder="Enter phone number" required
                                 style="width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: 4px; font-size: 1rem;">
                         </div>
                     </div>
@@ -96,7 +98,7 @@
                     <div class="form-group" style="margin-bottom: 1.5rem;">
                         <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: #444;">Select
                             Grade Applying For*</label>
-                        <select required
+                        <select name="grade" required
                             style="width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: 4px; font-size: 1rem; background: white;">
                             <option value="">Choose a Class</option>
                             <option>Nursery</option>
@@ -123,9 +125,9 @@
                         <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: #444;">Student
                             Date of Birth</label>
                         <div class="dob-group" style="display: grid; grid-template-columns: 1fr 2fr 1fr; gap: 1rem;">
-                            <input type="number" placeholder="Day" min="1" max="31"
+                            <input type="number" name="dob_day" placeholder="Day" min="1" max="31"
                                 style="padding: 0.8rem; border: 1px solid #ddd; border-radius: 4px;">
-                            <select
+                            <select name="dob_month"
                                 style="padding: 0.8rem; border: 1px solid #ddd; border-radius: 4px; background: white;">
                                 <option>Month</option>
                                 <option>January</option>
@@ -141,7 +143,7 @@
                                 <option>November</option>
                                 <option>December</option>
                             </select>
-                            <input type="number" placeholder="Year" min="2000" max="2025"
+                            <input type="number" name="dob_year" placeholder="Year" min="2000" max="2025"
                                 style="padding: 0.8rem; border: 1px solid #ddd; border-radius: 4px;">
                         </div>
                     </div>
@@ -149,18 +151,18 @@
                     <div class="form-group" style="margin-bottom: 1.5rem;">
                         <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: #444;">Previous
                             School Name</label>
-                        <input type="text" placeholder="Name of last school attended"
+                        <input type="text" name="previous_school" placeholder="Name of last school attended"
                             style="width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: 4px; font-size: 1rem;">
                     </div>
 
                     <div class="form-group" style="margin-bottom: 2rem;">
                         <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: #444;">Any
                             Queries</label>
-                        <textarea placeholder="Type here if you any queries" rows="4"
+                        <textarea name="queries" placeholder="Type here if you any queries" rows="4"
                             style="width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: 4px; font-size: 1rem; resize: vertical;"></textarea>
                     </div>
 
-                    <button type="button" class="btn btn-primary btn-block"
+                    <button type="submit" class="btn btn-primary btn-block"
                         style="width: 100%; padding: 1rem; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 700;">Submit
                         Application</button>
                     <p style="text-align: center; margin-top: 1.5rem; color: #888; font-size: 0.9rem;">
@@ -228,9 +230,11 @@
                     <h5>Stay Connected</h5>
                     <p style="margin-bottom: 1rem; font-size: 0.8rem;">Receive the latest news and updates from Aston
                         High School directly to your inbox.</p>
-                    <form class="newsletter-form">
-                        <input type="email" placeholder="Email Address">
-                        <button type="button" class="btn btn-primary" style="width: 100%;">Subscribe</button>
+                    <form class="newsletter-form" action="https://formsubmit.co/astonhostelpanchgani@gmail.com"
+                        method="POST">
+                        <input type="hidden" name="_subject" value="New Newsletter Subscription">
+                        <input type="email" name="email" placeholder="Email Address" required>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Subscribe</button>
                     </form>
 
                     <!-- Mobile Contact Details (Visible only on Mobile) -->

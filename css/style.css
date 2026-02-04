@@ -3853,7 +3853,7 @@ footer {
 }
 
 .cta-home {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../assets/images/Home/Last card bg img.jpg');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../assets/images/Home/Last card bg img.jpg');
 }
 
 .cta-admissions {
@@ -4162,6 +4162,8 @@ footer {
   .image-wrapper {
     order: -1;
     /* Image on top */
+    height: auto !important;
+    min-height: auto !important;
   }
 
   /* Highlights */

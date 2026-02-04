@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/style.css">
     <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="assets/images/logo/Aston logo.jpeg">
 </head>
 
 <body>
@@ -320,9 +321,11 @@
                     <h5>Stay Connected</h5>
                     <p style="margin-bottom: 1rem; font-size: 0.8rem;">Receive the latest news and updates from Aston
                         High School directly to your inbox.</p>
-                    <form class="newsletter-form">
-                        <input type="email" placeholder="Email Address">
-                        <button type="button" class="btn btn-primary" style="width: 100%;">Subscribe</button>
+                    <form class="newsletter-form" action="https://formsubmit.co/astonhostelpanchgani@gmail.com"
+                        method="POST">
+                        <input type="hidden" name="_subject" value="New Newsletter Subscription">
+                        <input type="email" name="email" placeholder="Email Address" required>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Subscribe</button>
                     </form>
 
                     <!-- Mobile Contact Details (Visible only on Mobile) -->
