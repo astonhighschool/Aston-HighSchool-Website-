@@ -61,45 +61,35 @@
 
     <div class="apply-page-container" style="background-color: #f5f5f5; padding: 4rem 0;">
         <div class="container">
-            <div class="app-form-wrapper"
-                style="background: white; max-width: 800px; margin: 0 auto; padding: 3rem; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
-                <div class="modal-header" style="text-align: center; margin-bottom: 3rem;">
-                    <h2 style="font-size: 2.5rem; color: #333; margin-bottom: 1rem; font-family: var(--font-serif);">
-                        Student Admission Form</h2>
-                    <p style="color: #666; font-size: 1.1rem;">Please fill in the details below to start your
-                        application.</p>
+            <div class="app-form-wrapper">
+                <div class="app-form-header">
+                    <h2 class="app-form-title">Student Admission Form</h2>
+                    <p class="app-form-subtitle">Please fill in the details below to start your application.</p>
                 </div>
 
                 <form class="app-form" action="https://formsubmit.co/astonhostelpanchgani@gmail.com" method="POST">
                     <input type="hidden" name="_subject" value="New Student Admission Application">
-                    <div class="form-group" style="margin-bottom: 1.5rem;">
-                        <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: #444;">Student
-                            Full Name*</label>
-                        <input type="text" name="student_name" placeholder="Enter Student's full name" required
-                            style="width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: 4px; font-size: 1rem;">
+                    <div class="form-group">
+                        <label class="form-label">Student Full Name*</label>
+                        <input type="text" name="student_name" class="form-input"
+                            placeholder="Enter Student's full name" required>
                     </div>
 
-                    <div class="form-row"
-                        style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem;">
+                    <div class="form-row">
                         <div class="form-group">
-                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: #444;">Parent
-                                Email*</label>
-                            <input type="email" name="parent_email" placeholder="Enter your email" required
-                                style="width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: 4px; font-size: 1rem;">
+                            <label class="form-label">Parent Email*</label>
+                            <input type="email" name="parent_email" class="form-input" placeholder="Enter your email"
+                                required>
                         </div>
                         <div class="form-group">
-                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: #444;">Phone
-                                Number*</label>
-                            <input type="tel" name="phone" placeholder="Enter phone number" required
-                                style="width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: 4px; font-size: 1rem;">
+                            <label class="form-label">Phone Number*</label>
+                            <input type="tel" name="phone" class="form-input" placeholder="Enter phone number" required>
                         </div>
                     </div>
 
-                    <div class="form-group" style="margin-bottom: 1.5rem;">
-                        <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: #444;">Select
-                            Grade Applying For*</label>
-                        <select name="grade" required
-                            style="width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: 4px; font-size: 1rem; background: white;">
+                    <div class="form-group">
+                        <label class="form-label">Select Grade Applying For*</label>
+                        <select name="grade" class="form-select" required>
                             <option value="">Choose a Class</option>
                             <option>Nursery</option>
                             <option>KG 1</option>
@@ -121,14 +111,11 @@
                         </select>
                     </div>
 
-                    <div class="form-group" style="margin-bottom: 1.5rem;">
-                        <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: #444;">Student
-                            Date of Birth</label>
-                        <div class="dob-group" style="display: grid; grid-template-columns: 1fr 2fr 1fr; gap: 1rem;">
-                            <input type="number" name="dob_day" placeholder="Day" min="1" max="31"
-                                style="padding: 0.8rem; border: 1px solid #ddd; border-radius: 4px;">
-                            <select name="dob_month"
-                                style="padding: 0.8rem; border: 1px solid #ddd; border-radius: 4px; background: white;">
+                    <div class="form-group">
+                        <label class="form-label">Student Date of Birth</label>
+                        <div class="dob-group">
+                            <input type="number" name="dob_day" class="dob-input" placeholder="Day" min="1" max="31">
+                            <select name="dob_month" class="dob-input">
                                 <option>Month</option>
                                 <option>January</option>
                                 <option>February</option>
@@ -143,30 +130,26 @@
                                 <option>November</option>
                                 <option>December</option>
                             </select>
-                            <input type="number" name="dob_year" placeholder="Year" min="2000" max="2025"
-                                style="padding: 0.8rem; border: 1px solid #ddd; border-radius: 4px;">
+                            <input type="number" name="dob_year" class="dob-input" placeholder="Year" min="2000"
+                                max="2025">
                         </div>
                     </div>
 
-                    <div class="form-group" style="margin-bottom: 1.5rem;">
-                        <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: #444;">Previous
-                            School Name</label>
-                        <input type="text" name="previous_school" placeholder="Name of last school attended"
-                            style="width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: 4px; font-size: 1rem;">
+                    <div class="form-group">
+                        <label class="form-label">Previous School Name</label>
+                        <input type="text" name="previous_school" class="form-input"
+                            placeholder="Name of last school attended">
                     </div>
 
-                    <div class="form-group" style="margin-bottom: 2rem;">
-                        <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: #444;">Any
-                            Queries</label>
-                        <textarea name="queries" placeholder="Type here if you any queries" rows="4"
-                            style="width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: 4px; font-size: 1rem; resize: vertical;"></textarea>
+                    <div class="form-group">
+                        <label class="form-label">Any Queries</label>
+                        <textarea name="queries" class="form-textarea" placeholder="Type here if you have any queries"
+                            rows="4"></textarea>
                     </div>
 
-                    <button type="submit" class="btn btn-primary btn-block"
-                        style="width: 100%; padding: 1rem; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 700;">Submit
-                        Application</button>
-                    <p style="text-align: center; margin-top: 1.5rem; color: #888; font-size: 0.9rem;">
-                        <i class="fa-solid fa-shield-halved" style="margin-right: 0.5rem;"></i>
+                    <button type="submit" class="btn btn-primary form-submit-btn">Submit Application</button>
+                    <p class="form-policy-text">
+                        <i class="fa-solid fa-shield-halved policy-icon"></i>
                         Don't worry, we will not spam your mail.
                     </p>
                 </form>

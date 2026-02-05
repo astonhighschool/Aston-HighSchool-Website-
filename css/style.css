@@ -48,8 +48,12 @@ body {
 html {
   margin: 0;
   padding: 0;
-  /* overflow-x: hidden; REMOVED to fix sticky nav */
+  overflow-x: hidden;
   width: 100%;
+}
+
+body {
+  overflow-x: hidden;
 }
 
 img {
@@ -4722,6 +4726,13 @@ body.menu-open {
   opacity: 1;
 }
 
+/* Fix for overlapping text on mobile facilities page */
+@media (max-width: 900px) {
+  .facility-section h2 {
+    margin-top: 3rem !important;
+  }
+}
+
 /* Responsive Design */
 @media (max-width: 1200px) {
   .menu-grid {
@@ -5192,4 +5203,172 @@ body.menu-open {
   background-color: #128c7e;
   transform: translateY(-5px);
   color: white;
+}
+
+/* -----------------------------------------------------------
+   Admission Form Page Styles
+----------------------------------------------------------- */
+.apply-page-container {
+  background-color: #f5f5f5;
+  padding: 4rem 0;
+}
+
+.app-form-wrapper {
+  background: white;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 3rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.app-form-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.app-form-title {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 1rem;
+  font-family: var(--font-serif);
+}
+
+.app-form-subtitle {
+  color: #666;
+  font-size: 1.1rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #444;
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  background: white;
+  /* Ensure consistent background */
+  font-family: inherit;
+  /* Inherit font from body/parent */
+}
+
+/* Specific input overrides/adjustments */
+textarea.form-textarea {
+  resize: vertical;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.dob-group {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: 1rem;
+}
+
+.dob-input {
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background: white;
+  /* For select elements mainly */
+  width: 100%;
+  /* Ensure full width within grid cell */
+  font-size: 1rem;
+}
+
+.form-submit-btn {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+}
+
+.form-policy-text {
+  text-align: center;
+  margin-top: 1.5rem;
+  color: #888;
+  font-size: 0.9rem;
+}
+
+.policy-icon {
+  margin-right: 0.5rem;
+}
+
+
+/* -----------------------------------------------------------
+   Admission Form Responsive Styles
+----------------------------------------------------------- */
+@media (max-width: 768px) {
+  .apply-page-container {
+    padding: 2rem 0;
+    /* Reduce vertical padding */
+  }
+
+  .app-form-wrapper {
+    padding: 1.5rem;
+    /* Reduce internal padding */
+    margin: 0 1rem;
+    /* Add side margins so it doesn't hit edges */
+    width: auto;
+    /* Allow auto width with margins */
+  }
+
+  .app-form-title {
+    font-size: 1.8rem;
+    /* Smaller title */
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+    /* Stack email and phone */
+    gap: 0;
+    /* Remove gap between grid columns, reliance on margin-bottom of groups */
+  }
+
+  .form-row .form-group {
+    margin-bottom: 1.5rem;
+    /* Ensure spacing between stacked items */
+  }
+
+  .dob-group {
+    grid-template-columns: 1fr 2fr;
+    gap: 0.5rem;
+  }
+
+  /* Make Year span full width or sit in the grid */
+  .dob-group input[name="dob_year"] {
+    grid-column: span 2;
+  }
+}
+
+@media (min-width: 480px) and (max-width: 768px) {
+
+  /* Slightly wider mobiles can keep 3 cols for DOB maybe? */
+  .dob-group {
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-column-gap: 0.5rem;
+  }
+
+  .dob-group input[name="dob_year"] {
+    grid-column: auto;
+  }
 }
