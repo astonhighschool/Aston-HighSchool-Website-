@@ -4732,6 +4732,12 @@ body.menu-open {
     font-size: 1.75rem;
   }
 }
+/* Fix for overlapping text on mobile facilities page */
+@media (max-width: 900px) {
+  .facility-section h2 {
+    margin-top: 3rem !important;
+  }
+}
 
 @media (max-width: 900px) {
   .menu-grid {
