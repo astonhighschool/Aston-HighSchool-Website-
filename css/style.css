@@ -4743,6 +4743,12 @@ body.menu-open {
     font-size: 1.75rem;
   }
 }
+/* Fix for overlapping text on mobile facilities page */
+@media (max-width: 900px) {
+  .facility-section h2 {
+    margin-top: 3rem !important;
+  }
+}
 
 @media (max-width: 900px) {
   .menu-grid {
@@ -5204,6 +5210,7 @@ body.menu-open {
   transform: translateY(-5px);
   color: white;
 }
+<<<<<<< HEAD
 
 /* -----------------------------------------------------------
    Admission Form Page Styles
@@ -5372,3 +5379,5 @@ textarea.form-textarea {
     grid-column: auto;
   }
 }
+=======
+>>>>>>> 723b3e32e071fb609fd1e543d0106e257c1b4873
