@@ -1,0 +1,251 @@
+/* -----------------------------------------------------------
+   Life at Our School - Interactive Illustrated Map
+----------------------------------------------------------- */
+#life-at-school {
+    padding: 3rem 0;
+    background-color: var(--bg-white);
+}
+
+/* Wrapper for Side-by-Side Layout */
+.illustrations-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 2rem;
+    flex-wrap: wrap;
+    max-width: 1400px;
+    /* Increased for better 2-col view */
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.illustration-section {
+    flex: 1 1 500px;
+    max-width: 700px;
+    width: 100%;
+    margin-bottom: 2rem;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    /* overflow: hidden; Removed to allow tooltip overlap */
+    position: relative;
+    /* Context for absolute positioning inside if needed */
+    transition: transform 0.3s ease;
+}
+
+/* ... existing styles ... */
+
+.illustration-container {
+    position: relative;
+    width: 100%;
+    /* overflow: hidden; Removed to allow tooltip overlap */
+    cursor: default;
+    border-radius: 12px;
+    /* moved here to clip image/glows but we might need it on img if container doesn't clip. 
+                            Actually if we remove overflow hidden, we lose clipping. 
+                            Let's rely on img border radius or just let content flow. */
+}
+
+.illustration-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s ease;
+    border-radius: 12px;
+    /* Added to maintain look */
+}
+
+/* Hotspot Areas */
+.hotspot-area {
+    position: absolute;
+    cursor: pointer;
+    z-index: 10;
+}
+
+/* Glow Effect on Hover */
+.hotspot-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    /* Changed to Circle/Oval */
+    /* Rectangular shape */
+    box-shadow: 0 0 15px 2px rgba(255, 255, 0, 0.4);
+    /* Gold/Warm glow */
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    opacity: 0;
+    transform: scale(0.98);
+    transition: all 0.2s ease;
+}
+
+.hotspot-area:hover .hotspot-glow {
+    opacity: 1;
+    transform: scale(1);
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Label on Hover */
+.hotspot-label {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.hotspot-area:hover .hotspot-label {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* Back Button */
+.map-back-btn {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    z-index: 50;
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 30px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    font-weight: 600;
+    color: var(--primary-red);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.map-back-btn:hover {
+    background: var(--primary-red);
+    color: white;
+    transform: translateX(-3px);
+}
+
+
+/* Tooltip / Info Card */
+/* Rich Tooltip Card Styles */
+.illustration-tooltip {
+    position: absolute;
+    /* Fixed: Was missing, causing layout issues */
+    top: 0;
+    left: 0;
+    /* Updated base styles for card layout */
+    width: 300px;
+    /* Wider for content */
+    padding: 0;
+    /* Reset padding for card look */
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #333;
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.2s ease;
+    z-index: 100;
+    white-space: normal;
+    /* Allow wrapping */
+    overflow: hidden;
+    /* For image radius */
+    text-align: left;
+}
+
+.illustration-tooltip.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.tooltip-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.tooltip-img-wrapper {
+    width: 100%;
+    height: 130px;
+    /* Slightly increased to give room for containment */
+    background: #fff;
+    /* White background for letterboxing */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tooltip-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    /* Shows full image without cropping */
+}
+
+.tooltip-content {
+    padding: 1rem;
+}
+
+.tooltip-content h3 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.1rem;
+    color: var(--primary-red);
+    font-weight: 700;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 0.5rem;
+}
+
+.tooltip-content ul {
+    margin: 0;
+    padding-left: 1.2rem;
+    list-style-type: disc;
+}
+
+.tooltip-content ul li {
+    font-size: 0.85rem;
+    color: #444;
+    margin-bottom: 0.3rem;
+    line-height: 1.4;
+}
+
+/* Simple logic for tooltip Arrow would be nice, but positioning varies */
+
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .illustration-section {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+
+    .hotspot-glow {
+        /* Always show subtle glow on mobile to indicate interactiveness? 
+           Or just rely on tap. */
+        opacity: 0.2;
+        border-color: rgba(255, 255, 255, 0.3);
+    }
+
+    .hotspot-label {
+        /* Show labels on mobile? Might clutter. Keep them hidden until tap/active state? */
+        opacity: 0.8;
+        /* Maybe show them semi-transparent */
+        background: rgba(0, 0, 0, 0.5);
+        font-size: 0.7rem;
+    }
+}

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Life | Aston High School</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/map-styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" type="image/x-icon" href="assets/images/logo/Aston logo.jpeg">
 </head>
@@ -102,7 +103,7 @@
 
                         <!-- Card 1: Shooting -->
                         <div class="enrichment-card" style="background-color: #d9d9d9;">
-                            <img src="assets/images/students/Shotting img.avif" alt="Shooting">
+                            <img src="assets/images/Home/Shotting img.JPG" alt="Shooting">
                             <div class="enrichment-card-content">
                                 <h4><i class="fa-solid fa-crosshairs"></i> Shooting</h4>
                                 <p>With strict safety standards, students learn shooting as a sport that sharpens
@@ -200,6 +201,219 @@
         </div>
     </section>
 
+    <!-- Interactive Illustrated Sections -->
+    <div class="illustrations-wrapper" style="margin-top: 4rem; margin-bottom: 4rem;">
+
+        <!-- LEFT COLUMN: School Campus (Dynamic) -->
+        <div class="illustration-section dynamic-map-section" id="campus-interactive-container">
+
+            <!-- VIEW 1: Overview (School + Ground + Pool) -->
+            <div class="map-view active" id="view-school">
+                <div class="illustration-container">
+                    <img src="assets/images/Home/map_school_overview.png" alt="School Campus" class="illustration-img">
+
+                    <!-- Zone A: School Building -->
+                    <div class="hotspot-area" style="top: 22%; left: 28%; width: 44%; height: 28%;"
+                        data-target-view="view-academics">
+                        <div class="hotspot-glow"></div>
+                        <span class="hotspot-label"><i class="fa-solid fa-graduation-cap"></i> School</span>
+                    </div>
+
+                    <!-- Zone B: Ground Area -->
+                    <div class="hotspot-area" style="top: 55%; left: 5%; width: 50%; height: 35%;"
+                        data-target-view="view-sports">
+                        <div class="hotspot-glow"></div>
+                        <span class="hotspot-label"><i class="fa-solid fa-person-running"></i> Sports</span>
+                    </div>
+
+                    <!-- Zone C: Swimming Pool -->
+                    <div class="hotspot-area" style="top: 55%; right: 5%; width: 35%; height: 30%;"
+                        data-target-view="view-sports">
+                        <div class="hotspot-glow"></div>
+                        <span class="hotspot-label"><i class="fa-solid fa-water"></i> Pool</span>
+                    </div>
+
+                    <!-- Tooltip Container -->
+                    <div class="illustration-tooltip"></div>
+                </div>
+                <div class="section-header">
+                    <h3>Explore Our Campus</h3>
+                    <p>Click on the School, Ground, or Pool to explore further.</p>
+                </div>
+            </div>
+
+            <!-- VIEW 3: Academics (Hidden by default) -->
+            <div class="map-view" id="view-academics" style="display: none;">
+                <button class="map-back-btn" data-target-view="view-school"><i class="fa-solid fa-arrow-left"></i> Back
+                    to Campus</button>
+                <div class="illustration-container">
+                    <!-- Placeholder: Using a classroom image or similar if collage is missing. 
+                         Ideally this should be "academics_collage.jpg" -->
+                    <img src="assets/images/Home/map_academics_view.png" alt="Academics View" class="illustration-img">
+
+                    <!-- Zones for Academics - 9 Distinct Regions (3x3 Grid) -->
+
+                    <!-- Row 1 -->
+                    <!-- Zone 1.1: Smart Classroom (Top Left) -->
+                    <div class="hotspot-area" style="top: 1.5%; left: 1.5%; width: 31.5%; height: 31%;"
+                        data-key="smart-classroom" data-tooltip="Smart Classrooms">
+                        <div class="hotspot-glow"></div>
+                    </div>
+                    <!-- Zone 1.2: Teaching (Top Center) -->
+                    <div class="hotspot-area" style="top: 1.5%; left: 34.5%; width: 31%; height: 31%;"
+                        data-key="smart-classroom" data-tooltip="Interactive Learning">
+                        <div class="hotspot-glow"></div>
+                    </div>
+                    <!-- Zone 1.3: Study Area (Top Right) -->
+                    <div class="hotspot-area" style="top: 1.5%; right: 1.5%; width: 31.5%; height: 31%;"
+                        data-key="computer-lab" data-tooltip="Computer Lab">
+                        <div class="hotspot-glow"></div>
+                    </div>
+
+                    <!-- Row 2 -->
+                    <!-- Zone 2.1: Science Lab (Middle Left) -->
+                    <div class="hotspot-area" style="top: 34.5%; left: 1.5%; width: 31.5%; height: 31%;"
+                        data-key="science-computer-lab" data-tooltip="Science Lab">
+                        <div class="hotspot-glow"></div>
+                    </div>
+                    <!-- Zone 2.2: Library (Middle Center) -->
+                    <div class="hotspot-area" style="top: 34.5%; left: 34.5%; width: 31%; height: 31%;"
+                        data-key="library" data-tooltip="Library & Reading Room">
+                        <div class="hotspot-glow"></div>
+                    </div>
+                    <!-- Zone 2.3: Discussion (Middle Right) -->
+                    <div class="hotspot-area" style="top: 34.5%; right: 1.5%; width: 31.5%; height: 31%;"
+                        data-key="library" data-tooltip="Group Discussion">
+                        <div class="hotspot-glow"></div>
+                    </div>
+
+                    <!-- Row 3 -->
+                    <!-- Zone 3.1: Music (Bottom Left) -->
+                    <div class="hotspot-area" style="bottom: 1.5%; left: 1.5%; width: 31.5%; height: 31%;"
+                        data-key="music-cultural" data-tooltip="Music & Cultural Activity">
+                        <div class="hotspot-glow"></div>
+                    </div>
+                    <!-- Zone 3.2: Activity (Bottom Center) -->
+                    <div class="hotspot-area" style="bottom: 1.5%; left: 34.5%; width: 31%; height: 31%;"
+                        data-key="indoor-sports" data-tooltip="Indoor Sports">
+                        <div class="hotspot-glow"></div>
+                    </div>
+                    <!-- Zone 3.3: Assembly (Bottom Right) -->
+                    <div class="hotspot-area" style="bottom: 1.5%; right: 1.5%; width: 31.5%; height: 31%;"
+                        data-key="morning-assembly" data-tooltip="Morning Assembly">
+                        <div class="hotspot-glow"></div>
+                    </div>
+
+                    <div class="illustration-tooltip"></div>
+                </div>
+                <div class="section-header">
+                    <h3>Academics & Learning</h3>
+                    <p>Smart Classrooms, Labs, Library, and More.</p>
+                </div>
+            </div>
+
+            <!-- VIEW 4: Sports (Hidden by default) -->
+            <div class="map-view" id="view-sports" style="display: none;">
+                <button class="map-back-btn" data-target-view="view-school"><i class="fa-solid fa-arrow-left"></i> Back
+                    to Campus</button>
+                <div class="illustration-container">
+                    <!-- Placeholder: Using Activities image -->
+                    <img src="assets/images/Home/map_sports_view.png" alt="Sports View" class="illustration-img">
+
+                    <!-- Zones for Sports - 9 Distinct Regions (3x3 Grid) -->
+
+                    <!-- Row 1 -->
+                    <!-- Zone 1.1: March Past (Top Left) -->
+                    <div class="hotspot-area" style="top: 1.5%; left: 1.5%; width: 31.5%; height: 31%;"
+                        data-key="march-past" data-tooltip="March Past">
+                        <div class="hotspot-glow"></div>
+                    </div>
+                    <!-- Zone 1.2: Mallakhamb (Top Center) -->
+                    <div class="hotspot-area" style="top: 1.5%; left: 34.5%; width: 31%; height: 31%;"
+                        data-key="mallakhamb" data-tooltip="Mallakhamb & Yoga">
+                        <div class="hotspot-glow"></div>
+                    </div>
+                    <!-- Zone 1.3: Archery (Top Right) -->
+                    <div class="hotspot-area" style="top: 1.5%; right: 1.5%; width: 31.5%; height: 31%;"
+                        data-key="archery-shooting" data-tooltip="Archery">
+                        <div class="hotspot-glow"></div>
+                    </div>
+
+                    <!-- Row 2 -->
+                    <!-- Zone 2.1: Karate (Middle Left) -->
+                    <div class="hotspot-area" style="top: 34.5%; left: 1.5%; width: 31.5%; height: 31%;"
+                        data-key="karate" data-tooltip="Karate">
+                        <div class="hotspot-glow"></div>
+                    </div>
+                    <!-- Zone 2.2: Horse Riding (Middle Center) -->
+                    <div class="hotspot-area" style="top: 34.5%; left: 34.5%; width: 31%; height: 31%;"
+                        data-key="horse-riding" data-tooltip="Horse Riding">
+                        <div class="hotspot-glow"></div>
+                    </div>
+                    <!-- Zone 2.3: Shooting (Middle Right) -->
+                    <div class="hotspot-area" style="top: 34.5%; right: 1.5%; width: 31.5%; height: 31%;"
+                        data-key="archery-shooting" data-tooltip="Shooting">
+                        <div class="hotspot-glow"></div>
+                    </div>
+
+                    <!-- Row 3 -->
+                    <!-- Zone 3.1: Swimming (Bottom Left) -->
+                    <div class="hotspot-area" style="bottom: 1.5%; left: 1.5%; width: 31.5%; height: 31%;"
+                        data-key="swimming" data-tooltip="Swimming">
+                        <div class="hotspot-glow"></div>
+                    </div>
+                    <!-- Zone 3.2: Skating (Bottom Center) -->
+                    <div class="hotspot-area" style="bottom: 1.5%; left: 34.5%; width: 31%; height: 31%;"
+                        data-key="skating" data-tooltip="Skating">
+                        <div class="hotspot-glow"></div>
+                    </div>
+                    <!-- Zone 3.3: Stick Fighting (Bottom Right) -->
+                    <div class="hotspot-area" style="bottom: 1.5%; right: 1.5%; width: 31.5%; height: 31%;"
+                        data-key="stick-fighting" data-tooltip="Silambam">
+                        <div class="hotspot-glow"></div>
+                    </div>
+
+
+                    <div class="illustration-tooltip"></div>
+                </div>
+                <div class="section-header">
+                    <h3>Sports & Activities</h3>
+                    <p>Building character through physical training.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- RIGHT COLUMN: Hostel Campus (Static) -->
+        <div class="illustration-section" id="hostel-campus">
+
+            <div class="illustration-container">
+                <img src="assets/images/Home/map_hostel_overview.png" alt="Hostel Facilities" class="illustration-img">
+
+                <!-- Hotspots (Hostel) - Simplified Grid Layout -->
+
+                <!-- 1. Hostel Room & Study (Top Row) -->
+                <div class="hotspot-area" style="top: 1.5%; left: 1.5%; width: 97%; height: 48%;" data-key="hostel-room"
+                    data-tooltip="Hostel Room & Study">
+                    <div class="hotspot-glow"></div>
+                </div>
+
+                <!-- 2. Canteen & Facilities (Bottom Row) -->
+                <div class="hotspot-area" style="bottom: 1.5%; left: 1.5%; width: 97%; height: 48%;" data-key="canteen"
+                    data-tooltip="Canteen & Facilities">
+                    <div class="hotspot-glow"></div>
+                </div>
+
+                <div class="illustration-tooltip"></div>
+            </div>
+            <div class="section-header">
+                <h3>Explore Our Hostel Facilities</h3>
+                <p>Hover to see our Rooms, Study Halls, and Dining Areas.</p>
+            </div>
+        </div>
+
+    </div>
+
     <!-- Facilities Grid -->
     <!-- Facilities Grid -->
     <div class="container facilities-cards-row">
@@ -281,7 +495,7 @@
 
             <!-- Set 2 (Cards 8-14) -->
             <!-- Card 8: Archery (Tall Left) -->
-            <div class="gallery-card card-8" style="background-image: url('assets/images/Home/Archery img.avif');">
+            <div class="gallery-card card-8" style="background-image: url('assets/images/Home/Archery img.JPG');">
                 <div class="overlay">
                     <div>
                         <h3>Precision Archery</h3>
@@ -317,6 +531,7 @@
                     </div>
                 </div>
             </div>
+
             <!-- Card 12: Assembly (Mid Right) -->
             <div class="gallery-card card-12" style="background-image: url('assets/images/Home/Assembly img.avif');">
                 <div class="overlay">
@@ -386,8 +601,7 @@
                 </div>
             </div>
             <!-- Card 19: Shooting (Mid Right) -->
-            <div class="gallery-card card-19"
-                style="background-image: url('assets/images/students/Shotting img.avif');">
+            <div class="gallery-card card-19" style="background-image: url('assets/images/Home/Shotting img.JPG');">
                 <div class="overlay">
                     <div>
                         <h3>Sharp Focus</h3>

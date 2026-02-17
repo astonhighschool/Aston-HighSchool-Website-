@@ -208,6 +208,323 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // -----------------------------------------------------------
+    // Interactive Map Logic (Dynamic & Static Views)
+    // -----------------------------------------------------------
+    const mapWrapper = document.querySelector('.illustrations-wrapper');
+
+    // Content Data for Hover Cards
+    const hotspotContent = {
+        // --- ACADEMICS ---
+        'morning-assembly': {
+            img: 'assets/images/Home/Assembly img.avif',
+            title: 'Morning Assembly',
+            lines: [
+                'Our day begins with a meaningful morning assembly.',
+                'It builds discipline, unity, and a sense of belonging.',
+                'Students participate in prayers and national anthems.',
+                'Promotes leadership and public speaking skills.',
+                'A positive start to every school day.'
+            ]
+        },
+        'smart-classroom': {
+            img: 'assets/images/New images/Classroom img.jpg',
+            title: 'Smart Classroom',
+            lines: [
+                'Our smart classrooms make learning interactive and engaging.',
+                'Digital tools help students understand concepts visually.',
+                'Lessons become more interesting and effective.',
+                'Teachers use modern methods for better learning outcomes.',
+                'It builds strong academic foundations.'
+            ]
+        },
+        'science-computer-lab': {
+            img: 'assets/images/New images/Scince Lab img.jpeg',
+            title: 'Science & Computer Lab',
+            lines: [
+                'Our labs provide hands-on practical learning for science and technology.',
+                'Students experiment, explore, and apply classroom concepts.',
+                'Computer labs improve coding, research, and digital skills.',
+                'Safety and discipline are strictly maintained.',
+                'It builds curiosity and innovation.'
+            ]
+        },
+        'computer-lab': {
+            img: 'assets/images/New images/Computer lab img.avif',
+            title: 'Computer Lab',
+            lines: [
+                'State-of-the-art computer systems for digital learning.',
+                'High-speed internet for research and projects.',
+                'Students learn programming and software skills.',
+                'Dedicated space for technical workshops.',
+                'Preparing students for the digital future.'
+            ]
+        },
+        'library': {
+            img: 'assets/images/Home/Libary img.avif',
+            title: 'Library & Reading Room',
+            lines: [
+                'The library nurtures reading habits and independent learning.',
+                'Students access books, references, and study materials.',
+                'It promotes quiet focus and imagination.',
+                'Reading builds knowledge and critical thinking.',
+                'A peaceful space for academic growth.'
+            ]
+        },
+        'music-cultural': {
+            img: 'assets/images/New images/Musics.jpeg',
+            title: 'Music & Cultural Activity',
+            lines: [
+                'Cultural programs encourage creativity and self-expression.',
+                'Students learn music, dance, and performing arts.',
+                'It boosts confidence and stage presence.',
+                'Cultural activities promote teamwork and discipline.',
+                'They shape well-rounded personalities.'
+            ]
+        },
+        'indoor-sports': {
+            img: 'assets/images/Home/Chess img.avif',
+            title: 'Indoor Sports',
+            lines: [
+                'Chess and Carrom develop strategic thinking.',
+                'Enhances concentration and mental agility.',
+                'Students learn patience and foresight.',
+                'Promotes healthy competition and focus.',
+                'A great way to sharpen the mind.'
+            ]
+        },
+
+        // --- OUTDOOR SPORTS ---
+        'march-past': {
+            img: 'assets/images/New images/Marchpass.JPG',
+            title: 'March Past',
+            lines: [
+                'March past teaches discipline, coordination, and teamwork.',
+                'Students develop physical fitness and leadership qualities.',
+                'It builds respect, unity, and school pride.',
+                'Training improves posture and confidence.',
+                'A symbol of strength and order.'
+            ]
+        },
+        'karate': {
+            img: 'assets/images/New images/Karate img.avif',
+            title: 'Karate',
+            lines: [
+                'Karate trains students in self-defense and discipline.',
+                'It improves focus, balance, and physical fitness.',
+                'Students learn respect and mental control.',
+                'It builds courage and confidence.',
+                'Strengthens body and mind.'
+            ]
+        },
+        'swimming': {
+            img: 'assets/images/New images/Swimming.png',
+            title: 'Swimming',
+            lines: [
+                'Swimming improves stamina and overall fitness.',
+                'Students learn water safety and survival skills.',
+                'It strengthens muscles and coordination.',
+                'Builds confidence in water activities.',
+                'A fun and healthy sport.'
+            ]
+        },
+        'horse-riding': {
+            img: 'assets/images/Home/Horse riding img.avif',
+            title: 'Horse Riding',
+            lines: [
+                'Horse riding develops balance and responsibility.',
+                'Students learn patience and control.',
+                'It builds confidence and coordination.',
+                'Encourages discipline and bonding with animals.',
+                'A unique skill-building sport.'
+            ]
+        },
+        'archery-shooting': {
+            img: 'assets/images/New images/Shotting img.JPG',
+            title: 'Archery & Shooting',
+            lines: [
+                'Archery and shooting improve focus and accuracy.',
+                'Students learn discipline and safety rules.',
+                'It strengthens hand-eye coordination.',
+                'Target practice builds patience and control.',
+                'Develops determination and calmness.'
+            ]
+        },
+        // Placeholders
+        'mallakhamb': {
+            img: 'assets/images/New images/Mallakhambv.JPG',
+            title: 'Mallakhamb & Yoga',
+            lines: [
+                'Traditional Indian sport building strength and agility.',
+                'Improves concentration and flexibility.',
+                'Promotes physical and mental discipline.',
+                'Connects students with heritage sports.',
+                'Builds core strength and balance.'
+            ]
+        },
+        'skating': {
+            img: 'assets/images/New images/Skatting img.avif',
+            title: 'Skating',
+            lines: [
+                'Skating improves balance, speed, and coordination.',
+                'Enhances reflexes and physical endurance.',
+                'A fun activity that builds confidence.',
+                'Encourages healthy competition and focus.',
+                'Strengthens leg muscles and core stability.'
+            ]
+        },
+        'stick-fighting': {
+            img: 'assets/images/New images/Martial art.JPG',
+            title: 'Martial Arts (Silambam)',
+            lines: [
+                'Traditional stick fighting art form.',
+                'Improves focus, reflexes, and self-defense skills.',
+                'Teaches rhythm, discipline, and respect.',
+                'Preserves cultural heritage and martial traditions.',
+                'Builds physical stamina and mental alertness.'
+            ]
+        },
+
+        // --- HOSTEL & FACILITIES ---
+        'hostel-room': {
+            img: 'assets/images/New images/Hostel room.JPG',
+            title: 'Hostel Room',
+            lines: [
+                'Our hostel rooms provide a safe and comfortable living space.',
+                'Students learn independence and responsibility.',
+                'It supports disciplined daily routines.',
+                'Rooms encourage study and rest balance.',
+                'A home away from home.'
+            ]
+        },
+        'canteen': {
+            img: 'assets/images/New images/Canteen img.JPG',
+            title: 'Canteen',
+            lines: [
+                'The canteen serves healthy and hygienic food.',
+                'Students enjoy balanced meals daily.',
+                'Cleanliness and nutrition are priorities.',
+                'It supports physical and mental well-being.',
+                'A space for refreshment and bonding.'
+            ]
+        }
+    };
+
+    if (mapWrapper) {
+
+        // 1. Tooltip & Hover Logic
+        // Enhanced for exclusive interaction: One active at a time
+        mapWrapper.addEventListener('mouseover', (e) => {
+            const hotspot = e.target.closest('.hotspot-area');
+            if (!hotspot) return;
+
+            // Prefer data-key for rich content, fallback to data-tooltip for simple text
+            const key = hotspot.dataset.key;
+            const simpleText = hotspot.dataset.tooltip;
+
+            if (!key && !simpleText) return;
+
+            const container = hotspot.closest('.illustration-container');
+            const tooltip = container.querySelector('.illustration-tooltip');
+
+            if (tooltip) {
+                // EXCLUSIVE: Clear any other active hotspots or tooltips in this container immediately
+                container.querySelectorAll('.hotspot-area.active').forEach(h => {
+                    if (h !== hotspot) h.classList.remove('active');
+                });
+
+                hotspot.classList.add('active');
+
+                // Generate Content
+                if (key && hotspotContent[key]) {
+                    const data = hotspotContent[key];
+                    tooltip.innerHTML = `
+                        <div class="tooltip-card">
+                            <div class="tooltip-img-wrapper">
+                                <img src="${data.img}" alt="${data.title}">
+                            </div>
+                            <div class="tooltip-content">
+                                <h3>${data.title}</h3>
+                                <ul>
+                                    ${data.lines.map(line => `<li>${line}</li>`).join('')}
+                                </ul>
+                            </div>
+                        </div>
+                    `;
+                } else {
+                    tooltip.textContent = simpleText; // Fallback
+                }
+
+                tooltip.classList.add('active');
+
+                // Track mouse movement for this specific interaction
+                const moveTooltip = (evt) => {
+                    const rect = container.getBoundingClientRect();
+                    let x = evt.clientX - rect.left + 20;
+                    // FIXED: User requested card always starts from top to prevent cutoff
+                    let y = 10;
+
+                    // Boundary checks (Smart positioning for X only)
+                    // If tooltip goes off right edge, flip to left of cursor
+                    if (x + tooltip.offsetWidth > rect.width) {
+                        x = evt.clientX - rect.left - tooltip.offsetWidth - 20;
+                    }
+
+                    // Clamp X to edges
+                    if (x < 0) x = 10;
+
+                    tooltip.style.left = `${x}px`;
+                    tooltip.style.top = `${y}px`;
+                };
+
+                // Remove previous listeners to avoid stacking
+                if (container._moveTooltipHandler) {
+                    container.removeEventListener('mousemove', container._moveTooltipHandler);
+                }
+                container._moveTooltipHandler = moveTooltip;
+                container.addEventListener('mousemove', moveTooltip);
+
+                // Handle leaving THIS hotspot
+                const onLeave = () => {
+                    tooltip.classList.remove('active');
+                    hotspot.classList.remove('active');
+                    container.removeEventListener('mousemove', moveTooltip);
+                    hotspot.removeEventListener('mouseleave', onLeave);
+                    container._moveTooltipHandler = null;
+                };
+
+                hotspot.addEventListener('mouseleave', onLeave);
+            }
+        });
+
+        // 2. View Switching Logic (School -> Academics/Sports -> Back)
+        mapWrapper.addEventListener('click', (e) => {
+            // Check for elements that trigger a view change
+            const trigger = e.target.closest('[data-target-view]');
+            if (!trigger) return;
+
+            e.preventDefault();
+            const targetId = trigger.dataset.targetView;
+            const targetView = document.getElementById(targetId);
+            const currentView = trigger.closest('.map-view');
+
+            if (currentView && targetView) {
+                // Fade out current
+                currentView.classList.remove('active');
+
+                // Wait for transition to finish before hiding/showing
+                setTimeout(() => {
+                    currentView.style.display = 'none';
+                    targetView.style.display = 'block';
+
+                    // Trigger reflow to enable transition
+                    void targetView.offsetWidth;
+
+                    targetView.classList.add('active');
+                }, 400); // 400ms match CSS transition
+            }
+        });
+    }
     // 5-Second Admission Popup
     function initAdmissionsPopup() {
         // Check page eligibility (Home or Admissions only)

@@ -124,190 +124,61 @@
     <!-- Widgets Section -->
     <section style="padding: 4rem 0;">
         <div class="container">
-            <div class="sidebar-grid" style="display: grid; gap: 2rem; grid-template-columns: repeat(3, 1fr);">
 
-                <!-- Quick Resources Widget -->
-                <!-- Card 1: SSC Board Fees -->
-                <!-- Card 1: SSC Board Fees -->
-                <div class="sidebar-widget fee-card"
-                    style="background-color: #fff; border: 1px solid #ddd; padding: 1.5rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); display: flex; flex-direction: column; height: 100%;">
-                    <h4 class="widget-title"
-                        style="color: var(--text-dark); margin-bottom: 1rem; font-size: 1.1rem; border-bottom: 2px solid var(--primary-red); padding-bottom: 0.5rem; display: inline-block;">
-                        Fee Structure – SSC BOARD (2026-27)</h4>
-                    <div style="overflow-x: auto;">
-                        <table class="fee-table"
-                            style="font-size: 0.75rem; margin-bottom: 1.5rem; width: 100%; border-collapse: collapse;">
-                            <thead>
-                                <tr style="background: #eee;">
-                                    <th style="padding: 5px; border: 1px solid #ddd;">SR.NO.</th>
-                                    <th style="padding: 5px; border: 1px solid #ddd;">DESCRIPTION</th>
-                                    <th style="padding: 5px; border: 1px solid #ddd;">I To IV</th>
-                                    <th style="padding: 5px; border: 1px solid #ddd;">V TO VII</th>
-                                    <th style="padding: 5px; border: 1px solid #ddd;">VIII TO X</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td style="padding: 5px; border: 1px solid #ddd;">1</td>
-                                    <td style="padding: 5px; border: 1px solid #ddd;">Tuition Fees</td>
-                                    <td style="padding: 5px; border: 1px solid #ddd;">45,000</td>
-                                    <td style="padding: 5px; border: 1px solid #ddd;">50,000</td>
-                                    <td style="padding: 5px; border: 1px solid #ddd;">55,000</td>
-                                </tr>
-                                <tr>
-                                    <td style="padding: 5px; border: 1px solid #ddd;">2</td>
-                                    <td style="padding: 5px; border: 1px solid #ddd;">Hostel & Mess Fees</td>
-                                    <td style="padding: 5px; border: 1px solid #ddd;">1,50,000</td>
-                                    <td style="padding: 5px; border: 1px solid #ddd;">1,60,000</td>
-                                    <td style="padding: 5px; border: 1px solid #ddd;">1,65,000</td>
-                                </tr>
-                                <tr>
-                                    <td style="padding: 5px; border: 1px solid #ddd;">3</td>
-                                    <td style="padding: 5px; border: 1px solid #ddd;">Other Exp.</td>
-                                    <td style="padding: 5px; border: 1px solid #ddd;">25,000</td>
-                                    <td style="padding: 5px; border: 1px solid #ddd;">25,000</td>
-                                    <td style="padding: 5px; border: 1px solid #ddd;">25,000</td>
-                                </tr>
-                                <tr style="font-weight: bold; background-color: #f9f9f9;">
-                                    <td style="padding: 5px; border: 1px solid #ddd;"></td>
-                                    <td style="padding: 5px; border: 1px solid #ddd;">TOTAL</td>
-                                    <td style="padding: 5px; border: 1px solid #ddd;">2,20,000</td>
-                                    <td style="padding: 5px; border: 1px solid #ddd;">2,35,000</td>
-                                    <td style="padding: 5px; border: 1px solid #ddd;">2,45,000</td>
-                                </tr>
-                            </tbody>
-                        </table>
+
+            <!-- Admission Procedure Widget (Premium Glassmorphism) -->
+            <section class="admission-glass-section">
+                <div class="glass-card">
+                    <div class="glass-header">
+                        <h2>Admission Procedure</h2>
                     </div>
-                    <div class="fee-notes"
-                        style="font-size: 0.75rem; color: #555; margin-top: auto; padding-top: 1rem; border-top: 1px solid #eee;">
-                        <p style="margin-bottom: 0.5rem;">• Admission Fees- RS.5000/- (Non Refundable/ Not including in
-                            fees)</p>
-                        <p>• Personal Exp. Rs.10000/- (For Personal Exp. to be paid after admission.)</p>
+
+                    <!-- Class Selection Tabs (Grouped) -->
+                    <div class="class-selection-area">
+
+                        <!-- Primary School -->
+                        <div class="class-group">
+                            <h4>Primary School (Grades 1–5)</h4>
+                            <div class="class-tabs-container">
+                                <button class="class-tab" data-value="grade-1">Grade 1</button>
+                                <button class="class-tab" data-value="grade-2">Grade 2</button>
+                                <button class="class-tab" data-value="grade-3">Grade 3</button>
+                                <button class="class-tab" data-value="grade-4">Grade 4</button>
+                                <button class="class-tab" data-value="grade-5">Grade 5</button>
+                            </div>
+                        </div>
+
+                        <!-- Secondary School -->
+                        <div class="class-group">
+                            <h4>Secondary School (Grades 6–10)</h4>
+                            <div class="class-tabs-container">
+                                <button class="class-tab" data-value="grade-6">Grade 6</button>
+                                <button class="class-tab" data-value="grade-7">Grade 7</button>
+                                <button class="class-tab" data-value="grade-8">Grade 8</button>
+                                <button class="class-tab" data-value="grade-9">Grade 9</button>
+                                <button class="class-tab" data-value="std-10">Grade 10</button>
+                            </div>
+                        </div>
+
+                        <!-- High School -->
+                        <div class="class-group">
+                            <h4>High School (Grades 11–12)</h4>
+                            <div class="class-tabs-container">
+                                <button class="class-tab" data-value="11th-science">11th Science</button>
+                                <button class="class-tab" data-value="11th-commerce">11th Commerce</button>
+                                <button class="class-tab" data-value="12th-science">12th Science</button>
+                                <button class="class-tab" data-value="12th-commerce">12th Commerce</button>
+                            </div>
+                        </div>
+
+                        <div class="action-area" style="margin-top: 2rem;">
+                            <button id="downloadFormBtn" class="btn-premium-action" disabled>
+                                <i class="fa-solid fa-file-pdf"></i> View Admission PDF
+                            </button>
+                        </div>
                     </div>
                 </div>
-
-                <!-- Upcoming Dates Widget -->
-                <!-- Card 2: CBSE Board Fees -->
-                <!-- Card 2: CBSE Board Fees -->
-                <div class="sidebar-widget fee-card"
-                    style="background-color: #fff; border: 1px solid #ddd; padding: 1.5rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); display: flex; flex-direction: column; height: 100%;">
-                    <h4 class="widget-title"
-                        style="color: var(--text-dark); margin-bottom: 1rem; font-size: 1.1rem; border-bottom: 2px solid var(--primary-red); padding-bottom: 0.5rem; display: inline-block;">
-                        Fee Structure – CBSE BOARD (2026-27)</h4>
-                    <div style="overflow-x: auto;">
-                        <table class="fee-table"
-                            style="font-size: 0.75rem; margin-bottom: 1.5rem; width: 100%; border-collapse: collapse;">
-                            <thead>
-                                <tr style="background: #eee;">
-                                    <th style="padding: 5px; border: 1px solid #ddd;">SR.NO.</th>
-                                    <th style="padding: 5px; border: 1px solid #ddd;">DESCRIPTION</th>
-                                    <th style="padding: 5px; border: 1px solid #ddd;">I To IV</th>
-                                    <th style="padding: 5px; border: 1px solid #ddd;">V TO VII</th>
-                                    <th style="padding: 5px; border: 1px solid #ddd;">VIII TO X</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td style="padding: 5px; border: 1px solid #ddd;">1</td>
-                                    <td style="padding: 5px; border: 1px solid #ddd;">Tuition Fees</td>
-                                    <td style="padding: 5px; border: 1px solid #ddd;">55,000</td>
-                                    <td style="padding: 5px; border: 1px solid #ddd;">60,000</td>
-                                    <td style="padding: 5px; border: 1px solid #ddd;">65,000</td>
-                                </tr>
-                                <tr>
-                                    <td style="padding: 5px; border: 1px solid #ddd;">2</td>
-                                    <td style="padding: 5px; border: 1px solid #ddd;">Hostel & Mess Fees</td>
-                                    <td style="padding: 5px; border: 1px solid #ddd;">1,50,000</td>
-                                    <td style="padding: 5px; border: 1px solid #ddd;">1,60,000</td>
-                                    <td style="padding: 5px; border: 1px solid #ddd;">1,65,000</td>
-                                </tr>
-                                <tr>
-                                    <td style="padding: 5px; border: 1px solid #ddd;">3</td>
-                                    <td style="padding: 5px; border: 1px solid #ddd;">Other Exp.</td>
-                                    <td style="padding: 5px; border: 1px solid #ddd;">25,000</td>
-                                    <td style="padding: 5px; border: 1px solid #ddd;">25,000</td>
-                                    <td style="padding: 5px; border: 1px solid #ddd;">25,000</td>
-                                </tr>
-                                <tr style="font-weight: bold; background-color: #f9f9f9;">
-                                    <td style="padding: 5px; border: 1px solid #ddd;"></td>
-                                    <td style="padding: 5px; border: 1px solid #ddd;">TOTAL</td>
-                                    <td style="padding: 5px; border: 1px solid #ddd;">2,30,000</td>
-                                    <td style="padding: 5px; border: 1px solid #ddd;">2,45,000</td>
-                                    <td style="padding: 5px; border: 1px solid #ddd;">2,55,000</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="fee-notes"
-                        style="font-size: 0.75rem; color: #555; margin-top: auto; padding-top: 1rem; border-top: 1px solid #eee;">
-                        <p style="margin-bottom: 0.5rem;">• Admission Fees- RS.5000/- (Non Refundable/ Not including in
-                            fees)</p>
-                        <p>• Personal Exp. Rs.10000/- (For Personal Exp. to be paid after admission.)</p>
-                    </div>
-                </div>
-
-                <!-- Fee Structure Widget -->
-                <!-- Card 3: HSC Board Fees -->
-                <div class="sidebar-widget fee-card"
-                    style="background-color: #fff; border: 1px solid #ddd; padding: 1.5rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); display: flex; flex-direction: column; height: 100%;">
-                    <h4 class="widget-title"
-                        style="color: var(--text-dark); margin-bottom: 1rem; font-size: 1.1rem; border-bottom: 2px solid var(--primary-red); padding-bottom: 0.5rem; display: inline-block;">
-                        Fee Structure – HSC BOARD (2026-27)</h4>
-                    <div style="overflow-x: auto;">
-                        <table class="fee-table"
-                            style="font-size: 0.75rem; margin-bottom: 1.5rem; width: 100%; border-collapse: collapse;">
-                            <thead>
-                                <tr style="background: #eee;">
-                                    <th style="padding: 5px; border: 1px solid #ddd;">SR.NO.</th>
-                                    <th style="padding: 5px; border: 1px solid #ddd;">DESCRIPTION</th>
-                                    <th style="padding: 5px; border: 1px solid #ddd;">XI & XII (Commerce)</th>
-                                    <th style="padding: 5px; border: 1px solid #ddd;">XI & XII (Science)</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td style="padding: 5px; border: 1px solid #ddd;">1</td>
-                                    <td style="padding: 5px; border: 1px solid #ddd;">College Fees</td>
-                                    <td style="padding: 5px; border: 1px solid #ddd;">65,000</td>
-                                    <td style="padding: 5px; border: 1px solid #ddd;">70,000</td>
-                                </tr>
-                                <tr>
-                                    <td style="padding: 5px; border: 1px solid #ddd;">2</td>
-                                    <td style="padding: 5px; border: 1px solid #ddd;">Hostel Fees</td>
-                                    <td style="padding: 5px; border: 1px solid #ddd;">1,70,000</td>
-                                    <td style="padding: 5px; border: 1px solid #ddd;">1,70,000</td>
-                                </tr>
-                                <tr>
-                                    <td style="padding: 5px; border: 1px solid #ddd;">3</td>
-                                    <td style="padding: 5px; border: 1px solid #ddd;">Other Exp.</td>
-                                    <td style="padding: 5px; border: 1px solid #ddd;">25,000</td>
-                                    <td style="padding: 5px; border: 1px solid #ddd;">25,000</td>
-                                </tr>
-                                <tr>
-                                    <td style="padding: 5px; border: 1px solid #ddd;"></td>
-                                    <td style="padding: 5px; border: 1px solid #ddd;">JEE/NEET</td>
-                                    <td style="padding: 5px; border: 1px solid #ddd;">-</td>
-                                    <td style="padding: 5px; border: 1px solid #ddd;">95,000</td>
-                                </tr>
-                                <tr style="font-weight: bold; background-color: #f9f9f9;">
-                                    <td style="padding: 5px; border: 1px solid #ddd;"></td>
-                                    <td style="padding: 5px; border: 1px solid #ddd;">Total</td>
-                                    <td style="padding: 5px; border: 1px solid #ddd;">2,60,000</td>
-                                    <td style="padding: 5px; border: 1px solid #ddd;">3,60,000</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-
-                    <div class="fee-notes"
-                        style="font-size: 0.75rem; color: #555; margin-top: auto; padding-top: 1rem; border-top: 1px solid #eee;">
-                        <p style="margin-bottom: 0.5rem;">• Admission Fees- RS.5000/- (Non Refundable/ Not including in
-                            fees)</p>
-                        <p>• Personal Exp. Rs.10000/- (For Personal Exp. to be paid after admission.)</p>
-                    </div>
-                </div>
-
-            </div>
+            </section>
 
             <!-- Common Questions Widget (Full Width Below) -->
             <div class="sidebar-widget" style="margin-top: 2rem;">
@@ -665,7 +536,6 @@
             Start your application today or talk to one of our counselors.</p>
         <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
             <a href="apply.html" class="btn btn-primary">Apply Online Now</a>
-            <a href="#" class="btn btn-outline-dark">Download Brochure</a>
         </div>
     </div>
 
