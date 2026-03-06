@@ -48,12 +48,12 @@ body {
 html {
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
+  overflow-x: clip;
   width: 100%;
 }
 
 body {
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 img {
@@ -450,7 +450,6 @@ p {
 /* Header & Navigation Redesign */
 header {
   position: relative;
-  top: 0;
   z-index: 1000;
   background-color: var(--bg-white);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
@@ -3722,10 +3721,10 @@ footer {
   }
 
   100% {
-    transform: translateX(-450vw);
+    transform: translateX(-800vw);
   }
 
-  /* 9 items * 50vw */
+  /* 16 items * 50vw */
 }
 
 /* Mobile Adjustment */
@@ -3745,7 +3744,7 @@ footer {
     }
 
     100% {
-      transform: translateX(-450vw);
+      transform: translateX(-1440vw);
     }
   }
 }

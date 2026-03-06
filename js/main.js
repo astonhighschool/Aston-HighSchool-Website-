@@ -363,7 +363,7 @@ document.addEventListener('DOMContentLoaded', () => {
             ]
         },
         'skating': {
-            img: 'assets/images/New images/Skatting img.avif',
+            img: 'assets/images/Home/Skatting.JPG',
             title: 'Skating',
             lines: [
                 'Skating improves balance, speed, and coordination.',

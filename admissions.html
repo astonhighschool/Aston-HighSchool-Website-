@@ -126,59 +126,241 @@
         <div class="container">
 
 
-            <!-- Admission Procedure Widget (Premium Glassmorphism) -->
-            <section class="admission-glass-section">
-                <div class="glass-card">
-                    <div class="glass-header">
+            <!-- Interactive Admission Map Section -->
+            <section class="interactive-map-section">
+                <div class="glass-card" style="padding: 2rem; position: relative;">
+                    <div class="glass-header text-center" style="margin-bottom: 2rem;">
                         <h2>Admission Procedure</h2>
+                        <p style="color: #555; font-size: 0.95rem;">Hover over a classroom to explore and click to view
+                            its admission procedure.</p>
                     </div>
 
-                    <!-- Class Selection Tabs (Grouped) -->
-                    <div class="class-selection-area">
+                    <div class="map-interactive-wrapper" id="mapWrapper">
+                        <!-- Use the requested image file -->
+                        <img src="assets/images/admissions/Admission Procedures.png" alt="School Classroom Map"
+                            id="school-building-img" usemap="#classroom-map" class="school-map-img">
 
-                        <!-- Primary School -->
-                        <div class="class-group">
-                            <h4>Primary School (Grades 1–5)</h4>
-                            <div class="class-tabs-container">
-                                <button class="class-tab" data-value="grade-1">Grade 1</button>
-                                <button class="class-tab" data-value="grade-2">Grade 2</button>
-                                <button class="class-tab" data-value="grade-3">Grade 3</button>
-                                <button class="class-tab" data-value="grade-4">Grade 4</button>
-                                <button class="class-tab" data-value="grade-5">Grade 5</button>
-                            </div>
-                        </div>
+                        <map name="classroom-map" id="classroom-map">
+                            <!-- Base coords assume a 1200x900 image coordinate system. The JS will scale to percentages -->
+                            <!-- Second Floor -->
+                            <area shape="rect" coords="0,0,0,0" href="pdfs/grade1.pdf" target="_blank"
+                                data-tooltip="View Grade 1 Information" alt="Grade 1"
+                                data-base-coords="180,275,310,425">
+                            <area shape="rect" coords="0,0,0,0" href="pdfs/grade2.pdf" target="_blank"
+                                data-tooltip="View Grade 2 Information" alt="Grade 2"
+                                data-base-coords="318,275,442,425">
+                            <area shape="rect" coords="0,0,0,0" href="pdfs/grade3.pdf" target="_blank"
+                                data-tooltip="View Grade 3 Information" alt="Grade 3"
+                                data-base-coords="450,275,570,425">
+                            <area shape="rect" coords="0,0,0,0" href="pdfs/grade4.pdf" target="_blank"
+                                data-tooltip="View Grade 4 Information" alt="Grade 4"
+                                data-base-coords="578,275,698,425">
+                            <area shape="rect" coords="0,0,0,0" href="pdfs/grade5.pdf" target="_blank"
+                                data-tooltip="View Grade 5 Information" alt="Grade 5"
+                                data-base-coords="706,275,828,425">
 
-                        <!-- Secondary School -->
-                        <div class="class-group">
-                            <h4>Secondary School (Grades 6–10)</h4>
-                            <div class="class-tabs-container">
-                                <button class="class-tab" data-value="grade-6">Grade 6</button>
-                                <button class="class-tab" data-value="grade-7">Grade 7</button>
-                                <button class="class-tab" data-value="grade-8">Grade 8</button>
-                                <button class="class-tab" data-value="grade-9">Grade 9</button>
-                                <button class="class-tab" data-value="std-10">Grade 10</button>
-                            </div>
-                        </div>
+                            <!-- First Floor -->
+                            <area shape="rect" coords="0,0,0,0" href="pdfs/grade6.pdf" target="_blank"
+                                data-tooltip="View Grade 6 Information" alt="Grade 6"
+                                data-base-coords="180,445,310,600">
+                            <area shape="rect" coords="0,0,0,0" href="pdfs/grade7.pdf" target="_blank"
+                                data-tooltip="View Grade 7 Information" alt="Grade 7"
+                                data-base-coords="318,445,442,600">
+                            <area shape="rect" coords="0,0,0,0" href="pdfs/grade8.pdf" target="_blank"
+                                data-tooltip="View Grade 8 Information" alt="Grade 8"
+                                data-base-coords="450,445,570,600">
+                            <area shape="rect" coords="0,0,0,0" href="pdfs/grade9.pdf" target="_blank"
+                                data-tooltip="View Grade 9 Information" alt="Grade 9"
+                                data-base-coords="578,445,698,600">
+                            <area shape="rect" coords="0,0,0,0" href="pdfs/grade10.pdf" target="_blank"
+                                data-tooltip="View Grade 10 Information" alt="Grade 10"
+                                data-base-coords="706,445,828,600">
 
-                        <!-- High School -->
-                        <div class="class-group">
-                            <h4>High School (Grades 11–12)</h4>
-                            <div class="class-tabs-container">
-                                <button class="class-tab" data-value="11th-science">11th Science</button>
-                                <button class="class-tab" data-value="11th-commerce">11th Commerce</button>
-                                <button class="class-tab" data-value="12th-science">12th Science</button>
-                                <button class="class-tab" data-value="12th-commerce">12th Commerce</button>
-                            </div>
-                        </div>
+                            <!-- Ground Floor -->
+                            <area shape="rect" coords="0,0,0,0" href="pdfs/11science.pdf" target="_blank"
+                                data-tooltip="View 11th Science Curriculum" alt="11th Science"
+                                data-base-coords="180,655,310,815">
+                            <area shape="rect" coords="0,0,0,0" href="pdfs/11commerce.pdf" target="_blank"
+                                data-tooltip="View 11th Commerce Curriculum" alt="11th Commerce"
+                                data-base-coords="318,655,442,815">
+                            <!-- Skip entrance block around 500-700 -->
+                            <area shape="rect" coords="0,0,0,0" href="pdfs/12science.pdf" target="_blank"
+                                data-tooltip="View 12th Science Curriculum" alt="12th Science"
+                                data-base-coords="578,655,698,815">
+                            <area shape="rect" coords="0,0,0,0" href="pdfs/12commerce.pdf" target="_blank"
+                                data-tooltip="View 12th Commerce Curriculum" alt="12th Commerce"
+                                data-base-coords="706,655,828,815">
+                        </map>
 
-                        <div class="action-area" style="margin-top: 2rem;">
-                            <button id="downloadFormBtn" class="btn-premium-action" disabled>
-                                <i class="fa-solid fa-file-pdf"></i> View Admission PDF
-                            </button>
-                        </div>
+                        <div id="map-tooltip" class="map-tooltip"></div>
                     </div>
                 </div>
             </section>
+
+            <style>
+                .interactive-map-section {
+                    width: 100%;
+                }
+
+                .map-interactive-wrapper {
+                    position: relative;
+                    display: inline-block;
+                    width: 100%;
+                    max-width: 1200px;
+                    margin: 0 auto;
+                }
+
+                .school-map-img {
+                    width: 100%;
+                    height: auto;
+                    display: block;
+                    border-radius: 8px;
+                    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+                }
+
+                /* Overlay highlights created by JS */
+                .map-highlight-overlay {
+                    position: absolute;
+                    background-color: rgba(139, 0, 0, 0.4);
+                    /* Primary Red tint */
+                    border: 2px solid var(--primary-red);
+                    border-radius: 4px;
+                    cursor: pointer;
+                    opacity: 0;
+                    transition: opacity 0.3s ease, transform 0.2s ease;
+                    z-index: 10;
+                    pointer-events: none;
+                    /* Let events pass to the actual area, OR make this handle clicks */
+                }
+
+                .map-highlight-overlay.active {
+                    opacity: 1;
+                    transform: scale(1.02);
+                }
+
+                /* Tooltip styling */
+                .map-tooltip {
+                    position: absolute;
+                    background: #222;
+                    color: white;
+                    padding: 8px 16px;
+                    border-radius: 6px;
+                    font-size: 0.9rem;
+                    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+                    pointer-events: none;
+                    opacity: 0;
+                    transform: translateY(10px);
+                    transition: opacity 0.2s ease, transform 0.2s ease;
+                    z-index: 20;
+                    white-space: nowrap;
+                    font-weight: 500;
+                }
+
+                .map-tooltip.visible {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+
+                .map-tooltip::after {
+                    content: '';
+                    position: absolute;
+                    top: 100%;
+                    left: 50%;
+                    margin-left: -6px;
+                    border-width: 6px;
+                    border-style: solid;
+                    border-color: #222 transparent transparent transparent;
+                }
+            </style>
+
+            <script>
+                document.addEventListener('DOMContentLoaded', () => {
+                    const img = document.getElementById('school-building-img');
+                    const map = document.getElementById('classroom-map');
+                    const areas = map.querySelectorAll('area');
+                    const wrapper = document.getElementById('mapWrapper');
+                    const tooltip = document.getElementById('map-tooltip');
+
+                    // Reference dimensions for the base coords
+                    const BASE_WIDTH = 1000;
+                    const BASE_HEIGHT = 1000;
+
+                    let overlays = [];
+
+                    function setupMap() {
+                        // Clear old overlays on resize
+                        overlays.forEach(ov => ov.remove());
+                        overlays = [];
+
+                        const imgWidth = img.offsetWidth || img.clientWidth;
+                        const imgHeight = img.offsetHeight || img.clientHeight;
+
+                        // Wait for image to load if size is 0
+                        if (imgWidth === 0) {
+                            setTimeout(setupMap, 100);
+                            return;
+                        }
+
+                        areas.forEach(area => {
+                            const baseCoords = area.getAttribute('data-base-coords').split(',').map(Number);
+
+                            // Scale coordinates proportionally
+                            const x1 = (baseCoords[0] / BASE_WIDTH) * imgWidth;
+                            const y1 = (baseCoords[1] / BASE_HEIGHT) * imgHeight;
+                            const x2 = (baseCoords[2] / BASE_WIDTH) * imgWidth;
+                            const y2 = (baseCoords[3] / BASE_HEIGHT) * imgHeight;
+
+                            // Set actual coords on area for native map functionality
+                            area.setAttribute('coords', `${x1},${y1},${x2},${y2}`);
+
+                            // Create visual overlay for hover effects
+                            const overlay = document.createElement('a');
+                            overlay.href = area.href;
+                            overlay.target = area.target;
+                            overlay.className = 'map-highlight-overlay';
+                            overlay.style.left = `${x1}px`;
+                            overlay.style.top = `${y1}px`;
+                            overlay.style.width = `${x2 - x1}px`;
+                            overlay.style.height = `${y2 - y1}px`;
+                            // Pointer events auto to let the overlay take hover/clicks natively and easily
+                            overlay.style.pointerEvents = 'auto';
+
+                            // Hover listeners
+                            const tooltipText = area.getAttribute('data-tooltip');
+
+                            overlay.addEventListener('mouseenter', (e) => {
+                                overlay.classList.add('active');
+                                tooltip.textContent = tooltipText;
+                                tooltip.classList.add('visible');
+
+                                // Position tooltip centrally above the overlay
+                                const rectLeft = parseInt(overlay.style.left);
+                                const rectTop = parseInt(overlay.style.top);
+                                const rectWidth = parseInt(overlay.style.width);
+
+                                tooltip.style.left = `${rectLeft + (rectWidth / 2) - (tooltip.offsetWidth / 2)}px`;
+                                tooltip.style.top = `${rectTop - tooltip.offsetHeight - 10}px`;
+                            });
+
+                            overlay.addEventListener('mouseleave', () => {
+                                overlay.classList.remove('active');
+                                tooltip.classList.remove('visible');
+                            });
+
+                            wrapper.appendChild(overlay);
+                            overlays.push(overlay);
+                        });
+                    }
+
+                    // Setup on load and resize
+                    if (img.complete) {
+                        setupMap();
+                    } else {
+                        img.addEventListener('load', setupMap);
+                    }
+                    window.addEventListener('resize', setupMap);
+                });
+            </script>
 
             <!-- Common Questions Widget (Full Width Below) -->
             <div class="sidebar-widget" style="margin-top: 2rem;">
