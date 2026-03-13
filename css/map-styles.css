@@ -158,7 +158,8 @@
     font-size: 0.9rem;
     font-weight: 600;
     color: #333;
-    pointer-events: none;
+    pointer-events: auto;
+    cursor: pointer;
     opacity: 0;
     transform: translateY(10px);
     transition: all 0.2s ease;
@@ -191,11 +192,20 @@
     justify-content: center;
 }
 
-.tooltip-img-wrapper img {
+.tooltip-img-wrapper img,
+.tooltip-img-wrapper video {
     width: 100%;
     height: 100%;
     object-fit: contain;
-    /* Shows full image without cropping */
+}
+
+.tooltip-img-wrapper.rotate-video {
+    overflow: hidden;
+}
+
+.tooltip-img-wrapper.rotate-video video {
+    transform: rotate(270deg) scale(1.5);
+    /* Scale up to fill the landscape container from portrait source */
 }
 
 .tooltip-content {

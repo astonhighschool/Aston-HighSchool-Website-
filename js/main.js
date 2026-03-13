@@ -250,7 +250,7 @@ document.addEventListener('DOMContentLoaded', () => {
             ]
         },
         'computer-lab': {
-            img: 'assets/images/New images/Computer lab img.avif',
+            video: 'assets/images/Home/IMG_2026.MP4',
             title: 'Computer Lab',
             lines: [
                 'State-of-the-art computer systems for digital learning.',
@@ -258,7 +258,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 'Students learn programming and software skills.',
                 'Dedicated space for technical workshops.',
                 'Preparing students for the digital future.'
-            ]
+            ],
+            rotate: true // Added for rotation as requested
         },
         'library': {
             img: 'assets/images/Home/Libary img.avif',
@@ -407,6 +408,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 'It supports physical and mental well-being.',
                 'A space for refreshment and bonding.'
             ]
+        },
+        'gym': {
+            img: 'assets/images/Home/GYM img.avif',
+            title: 'Gym & Fitness Center',
+            lines: [
+                'State-of-the-art gym equipment for strength training.',
+                'Promotes physical fitness and a healthy lifestyle.',
+                'Supervised sessions for student safety.',
+                'Building physical endurance and discipline.',
+                'Daily workouts to keep students active and energetic.'
+            ]
         }
     };
 
@@ -438,18 +450,34 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Generate Content
                 if (key && hotspotContent[key]) {
                     const data = hotspotContent[key];
-                    tooltip.innerHTML = `
-                        <div class="tooltip-card">
+                    let mediaHtml = '';
+
+                    if (data.video) {
+                        mediaHtml = `
+                            <div class="tooltip-img-wrapper ${data.rotate ? 'rotate-video' : ''}">
+                                <video autoplay loop muted playsinline>
+                                    <source src="${data.video}" type="video/mp4">
+                                </video>
+                            </div>
+                        `;
+                    } else {
+                        mediaHtml = `
                             <div class="tooltip-img-wrapper">
                                 <img src="${data.img}" alt="${data.title}">
                             </div>
+                        `;
+                    }
+
+                    tooltip.innerHTML = `
+                        <a href="student-life.html" class="tooltip-card" style="text-decoration: none; color: inherit; display: block;">
+                            ${mediaHtml}
                             <div class="tooltip-content">
                                 <h3>${data.title}</h3>
                                 <ul>
                                     ${data.lines.map(line => `<li>${line}</li>`).join('')}
                                 </ul>
                             </div>
-                        </div>
+                        </a>
                     `;
                 } else {
                     tooltip.textContent = simpleText; // Fallback
@@ -485,15 +513,23 @@ document.addEventListener('DOMContentLoaded', () => {
                 container.addEventListener('mousemove', moveTooltip);
 
                 // Handle leaving THIS hotspot
-                const onLeave = () => {
+                const onLeave = (evt) => {
+                    // Check if we are moving between the hotspot and its tooltip
+                    const toElement = evt.relatedTarget;
+                    if (toElement && (toElement.closest('.hotspot-area') || toElement.closest('.illustration-tooltip'))) {
+                        return;
+                    }
+
                     tooltip.classList.remove('active');
                     hotspot.classList.remove('active');
                     container.removeEventListener('mousemove', moveTooltip);
                     hotspot.removeEventListener('mouseleave', onLeave);
+                    tooltip.removeEventListener('mouseleave', onLeave);
                     container._moveTooltipHandler = null;
                 };
 
                 hotspot.addEventListener('mouseleave', onLeave);
+                tooltip.addEventListener('mouseleave', onLeave);
             }
         });
 
@@ -501,6 +537,14 @@ document.addEventListener('DOMContentLoaded', () => {
         mapWrapper.addEventListener('click', (e) => {
             // Check for elements that trigger a view change
             const trigger = e.target.closest('[data-target-view]');
+
+            // If it's a detail hotspot (has data-key), redirect to Student Life
+            const detailTrigger = e.target.closest('[data-key]');
+            if (detailTrigger) {
+                window.location.href = 'student-life.html';
+                return;
+            }
+
             if (!trigger) return;
 
             e.preventDefault();
